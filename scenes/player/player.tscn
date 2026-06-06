@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cx8yf38hxuu2i"]
+
+[ext_resource type="Script" uid="uid://dp8n1u6w8k7er" path="res://scenes/player/player.gd" id="1_gmlin"]
+[ext_resource type="Shader" uid="uid://ncl5d6qhmpf0" path="res://scenes/player/player.gdshader" id="2_lvxji"]
+[ext_resource type="Texture2D" uid="uid://cltvwnbyjkfpo" path="res://assets/PC _ Computer - Icy Tower - Playable Characters - Harold the Homeboy & Disco Dave.png" id="3_gmlin"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dovo2"]
+shader = ExtResource("2_lvxji")
+shader_parameter/tolerance = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afob"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(0, 0, 38, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
+atlas = ExtResource("3_gmlin")
+region = Rect2(38, 0, 38, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmlin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8afob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dovo2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(24, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(24, 0.375)
+
+[node name="Player" type="CharacterBody2D" unique_id=1051229409]
+collision_mask = 6
+script = ExtResource("1_gmlin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=372551]
+material = SubResource("ShaderMaterial_dovo2")
+sprite_frames = SubResource("SpriteFrames_gmlin")
+animation = &"idle"
+frame = 1
+frame_progress = 0.08472554
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709982015]
+position = Vector2(1, 15.75)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="PlatformCheckArea" type="Area2D" parent="." unique_id=2028604601]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCheckArea" unique_id=879927116]
+position = Vector2(1, 30)
+shape = SubResource("RectangleShape2D_gmlin")
