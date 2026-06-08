@@ -20,6 +20,9 @@ func _physics_process(_delta):
 	if is_game_over:
 		return
 		
+	if Input.is_action_just_pressed("show_menu"):
+		get_tree().change_scene_to_file('res://scenes/menu/menu.tscn')
+		
 	if Input.is_action_just_pressed("reset_game"):
 		get_tree().reload_current_scene()
 		

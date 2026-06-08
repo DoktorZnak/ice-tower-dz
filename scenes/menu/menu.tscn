@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://bevl64hg1uyv3"]
 
 [ext_resource type="Script" uid="uid://d4hhs2cukc3eu" path="res://scenes/menu/menu.gd" id="1_klgdb"]
+[ext_resource type="PackedScene" uid="uid://bcgnjixkxqwmi" path="res://scenes/menu/MenuStatRow/menu_stat_row.tscn" id="2_mcvr8"]
+[ext_resource type="Shader" uid="uid://ncl5d6qhmpf0" path="res://scenes/player/player.gdshader" id="3_037ec"]
+[ext_resource type="Texture2D" uid="uid://cltvwnbyjkfpo" path="res://assets/PC _ Computer - Icy Tower - Playable Characters - Harold the Homeboy & Disco Dave.png" id="4_y1o0p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8yej"]
+shader = ExtResource("3_037ec")
+shader_parameter/tolerance = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y2rt"]
+atlas = ExtResource("4_y1o0p")
+region = Rect2(0, 0, 39, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0a87"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y2rt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Control" unique_id=416126403]
 layout_mode = 3
@@ -11,10 +33,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_klgdb")
 
-[node name="Label" type="Label" parent="." unique_id=1212290724]
-layout_mode = 0
-offset_left = 332.0
-offset_top = 199.0
-offset_right = 429.0
-offset_bottom = 222.0
-text = "This is menu"
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1563696873]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 54.41
+offset_top = -118.5
+offset_right = 490.41
+offset_bottom = 118.5
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="Acc" parent="VBoxContainer" unique_id=1955922056 instance=ExtResource("2_mcvr8")]
+layout_mode = 2
+
+[node name="MaxSpeed" parent="VBoxContainer" unique_id=14840197 instance=ExtResource("2_mcvr8")]
+layout_mode = 2
+stat_name = "maxspeed"
+
+[node name="Jump" parent="VBoxContainer" unique_id=128729778 instance=ExtResource("2_mcvr8")]
+layout_mode = 2
+stat_name = "jump"
+
+[node name="Friction" parent="VBoxContainer" unique_id=1284185225 instance=ExtResource("2_mcvr8")]
+layout_mode = 2
+stat_name = "friction"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=968089206]
+material = SubResource("ShaderMaterial_r8yej")
+position = Vector2(765, 311)
+scale = Vector2(4.38, 4.38)
+sprite_frames = SubResource("SpriteFrames_t0a87")
