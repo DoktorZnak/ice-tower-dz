@@ -23,7 +23,7 @@ var speed_before_collision = 0
 
 var is_grounded = true
 
-@onready var dust = preload("res://scenes/dust/dust.tscn")
+@onready var dust = preload("res://scenes/_partials/player/dust/dust.tscn")
 
 func is_player_grounded():
 	return true if is_on_floor() or $PlatformCheckArea.has_overlapping_bodies() else false

@@ -1,6 +1,6 @@
 extends Node2D
 
-var platform_scene: PackedScene = preload("res://scenes/platform/platform.tscn")
+var platform_scene: PackedScene = preload("res://scenes/_partials/platform/platform.tscn")
 
 const PLATFORM_SPACING = 120
 const VIEWPORT_HEIGHT = 600

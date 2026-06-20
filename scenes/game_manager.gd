@@ -16,8 +16,8 @@ var players_stats = {
 	'friction': {'value': 100, 'label': 'Friction'},
 }
 
-var base_speed: float = 200.0
-var jump_force: float = -450.0
+var base_speed = 200.0
+var jump_force = -450.0
 
 func add_stat_point(stat_name: String) -> bool:
 	if stat_points <= 0: return false

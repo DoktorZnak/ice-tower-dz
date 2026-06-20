@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://k61cuk5rx2bq"]
 
-[ext_resource type="Script" uid="uid://b2nvuf36xsskl" path="res://scenes/platform/platform.gd" id="1_7j252"]
+[ext_resource type="Script" uid="uid://b2nvuf36xsskl" path="res://scenes/_partials/platform/platform.gd" id="1_7j252"]
 [ext_resource type="Texture2D" uid="uid://m1xi3sngna2p" path="res://assets/subway.png" id="1_8pv2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34mie"]

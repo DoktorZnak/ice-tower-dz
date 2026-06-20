@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://br1cqd800x1kl"]
 
-[ext_resource type="PackedScene" uid="uid://k61cuk5rx2bq" path="res://scenes/platform/platform.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://k61cuk5rx2bq" path="res://scenes/_partials/platform/platform.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://v3ge55jumfgx" path="res://scenes/main/main.gd" id="1_l3cfh"]
-[ext_resource type="PackedScene" uid="uid://cx8yf38hxuu2i" path="res://scenes/player/player.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://cx8yf38hxuu2i" path="res://scenes/_partials/player/player.tscn" id="2_iuonh"]
 [ext_resource type="Texture2D" uid="uid://bwgnuawiqhpq5" path="res://assets/Sprite-Wall.png" id="2_l3cfh"]
-[ext_resource type="PackedScene" uid="uid://dk4c66p2rtvdg" path="res://scenes/level_ui/level_ui.tscn" id="5_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dk4c66p2rtvdg" path="res://scenes/_partials/level_ui/level_ui.tscn" id="5_6q06x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3cfh"]
 texture = ExtResource("2_l3cfh")
