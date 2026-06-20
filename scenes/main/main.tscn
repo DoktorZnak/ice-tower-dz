@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://v3ge55jumfgx" path="res://scenes/main/main.gd" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://cx8yf38hxuu2i" path="res://scenes/player/player.tscn" id="2_iuonh"]
 [ext_resource type="Texture2D" uid="uid://bwgnuawiqhpq5" path="res://assets/Sprite-Wall.png" id="2_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://dk4c66p2rtvdg" path="res://scenes/level_ui/level_ui.tscn" id="5_6q06x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3cfh"]
 texture = ExtResource("2_l3cfh")
@@ -75,10 +76,20 @@ position = Vector2(-70, -50)
 [node name="Camera" type="Camera2D" parent="." unique_id=1466743722]
 physics_interpolation_mode = 1
 
-[node name="Area2D" type="Area2D" parent="Camera" unique_id=459627512]
+[node name="GameOverArea2D" type="Area2D" parent="Camera" unique_id=459627512]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Area2D" unique_id=10168673]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/GameOverArea2D" unique_id=10168673]
 position = Vector2(0, 686)
 shape = SubResource("WorldBoundaryShape2D_l3cfh")
 
-[connection signal="body_entered" from="Camera/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1308782488]
+offset = Vector2(25, 25)
+transform = Transform2D(1, 0, 0, 1, 25, 25)
+
+[node name="LevelUI" parent="CanvasLayer" unique_id=1028605540 instance=ExtResource("5_6q06x")]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[connection signal="body_entered" from="Camera/GameOverArea2D" to="." method="_on_game_over_area_2d_body_entered"]

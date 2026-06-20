@@ -2,7 +2,7 @@ extends Node2D
 
 var platform_scene: PackedScene = preload("res://scenes/platform/platform.tscn")
 
-const PLATFORM_SPACING = 80
+const PLATFORM_SPACING = 120
 const VIEWPORT_HEIGHT = 600
 const TILE_SIZE_Y = 32
 
@@ -14,6 +14,7 @@ var is_game_over = false
 
 func _ready() -> void:
 	randomize()
+	build_walls_up_to(-50)
 	last_built_wall_y_tile = next_spawn_y / TILE_SIZE_Y
 
 func _physics_process(_delta):
@@ -32,17 +33,24 @@ func _physics_process(_delta):
 	var camera_top_y = $Camera.global_position.y - VIEWPORT_HEIGHT
 	if next_spawn_y > camera_top_y:
 		spawn_next_platform()
+		addMainXP()
 	
 	clean_old_platforms($Camera.global_position.y + (VIEWPORT_HEIGHT / 2) - 100)
 	clean_old_walls($Camera.global_position.y + (VIEWPORT_HEIGHT / 2) + 50)
+
+func addMainXP():
+	if(platform_counter % 10 == 0):
+		GameManager.add_xp(14)
+		#$Camera/LevelUI.addXP(14)
+
 
 func spawn_next_platform():
 	platform_counter += 1
 	var new_platform = platform_scene.instantiate()
 	new_platform.count = platform_counter
-	new_platform.length = randi_range(15, 20)
+	new_platform.length = randi_range(11, 14)
 	
-	var platform_half_length = (new_platform.length * 16 / 2)
+	var platform_half_length = (new_platform.length * 22 / 2)
 
 	var random_x = randf_range(-350 + platform_half_length, 350 - platform_half_length)
 	new_platform.global_position = Vector2(random_x, next_spawn_y)
@@ -90,6 +98,5 @@ func trigger_game_over():
 	print("Koniec gry! Zdobyte XP: ", xp_earned)
 	get_tree().change_scene_to_file('res://scenes/menu/menu.tscn')
 
-
-func _on_area_2d_body_entered(_body: Node2D):
+func _on_game_over_area_2d_body_entered():
 	trigger_game_over()

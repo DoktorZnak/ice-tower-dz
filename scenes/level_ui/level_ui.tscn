@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dk4c66p2rtvdg"]
+
+[ext_resource type="Script" uid="uid://b07sg8hw3v1e" path="res://scenes/level_ui/level_ui.gd" id="1_b0f2m"]
+
+[node name="LevelUI" type="Control" unique_id=1028605540]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0f2m")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1065985849]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 27.0
+theme_override_constants/outline_size = 0
+value = 69.03
+
+[node name="XPLabel" type="Label" parent="." unique_id=887285394]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 37.0
+offset_right = 63.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.77881634, 0.77881616, 1.1551381e-06, 1)
+text = "+5"
+
+[node name="levelLabel" type="Label" parent="." unique_id=916641490]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 1.0
+offset_right = 127.0
+offset_bottom = 24.0
+text = "1"

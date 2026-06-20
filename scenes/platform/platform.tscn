@@ -457,6 +457,7 @@ sources/0 = SubResource("TileSetAtlasSource_34mie")
 font_size = 8
 
 [node name="Platform" type="TileMapLayer" unique_id=1148782930]
+scale = Vector2(1.4, 1.4)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_j0qm6")
 script = ExtResource("1_7j252")

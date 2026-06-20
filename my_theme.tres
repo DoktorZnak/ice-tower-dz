@@ -1,5 +1,28 @@
 [gd_resource type="Theme" format=3 uid="uid://6lg0wm2cmc00"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hduts"]
+bg_color = Color(0.627451, 0.5803922, 0.6431373, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiwll"]
+bg_color = Color(0.34541807, 0.5972042, 0.22236517, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvayc"]
 bg_color = Color(0.22130159, 0.22130162, 0.22130153, 1)
 corner_radius_top_left = 100
@@ -22,6 +45,9 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [resource]
+ProgressBar/colors/font_color = Color(0.87058824, 0.87058824, 0.87058824, 0)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_hduts")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_kiwll")
 blackLabel/base_type = &"Label"
 blackLabel/colors/font_color = Color(0, 0, 0, 1)
 roundedBtn/base_type = &"Button"

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bhqw61y1rtrpu"]
+
+[ext_resource type="Texture2D" uid="uid://bp6krnbvpfjc4" path="res://assets/dust/dust1.png" id="1_a5y2p"]
+[ext_resource type="Texture2D" uid="uid://c87nacfvo8nbw" path="res://assets/dust/dust2.png" id="2_rp414"]
+[ext_resource type="Texture2D" uid="uid://ck4fad1601k68" path="res://assets/dust/dust3.png" id="3_0tghs"]
+[ext_resource type="Texture2D" uid="uid://mubj0tbhg1hv" path="res://assets/dust/dust4.png" id="4_ivty8"]
+[ext_resource type="Script" uid="uid://dpecj8jm242n2" path="res://scenes/dust/dust.gd" id="5_rp414"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxhet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5y2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rp414")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0tghs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ivty8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_rp414"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0tghs"]
+resource_name = "start"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.18039216)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivty8"]
+_data = {
+&"RESET": SubResource("Animation_rp414"),
+&"start": SubResource("Animation_0tghs")
+}
+
+[node name="Dust" type="AnimatedSprite2D" unique_id=1791853937]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lxhet")
+autoplay = "default"
+script = ExtResource("5_rp414")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=28797869]
+libraries/ = SubResource("AnimationLibrary_ivty8")
+autoplay = &"start"
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
