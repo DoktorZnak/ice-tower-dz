@@ -11,14 +11,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_b0f2m")
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1065985849]
-layout_mode = 0
-offset_right = 105.0
-offset_bottom = 27.0
-theme_override_constants/outline_size = 0
-value = 69.03
 
 [node name="XPLabel" type="Label" parent="." unique_id=887285394]
 visible = false
@@ -30,10 +24,23 @@ offset_bottom = 60.0
 theme_override_colors/font_color = Color(0.77881634, 0.77881616, 1.1551381e-06, 1)
 text = "+5"
 
-[node name="levelLabel" type="Label" parent="." unique_id=916641490]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1082695975]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 1.0
-offset_right = 127.0
-offset_bottom = 24.0
+offset_right = 151.0
+offset_bottom = 36.0
+scale = Vector2(0.79, 0.79)
+theme_override_constants/separation = 14
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=1065985849]
+custom_minimum_size = Vector2(96.49, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 0
+value = 69.03
+
+[node name="levelLabel" type="Label" parent="HBoxContainer" unique_id=916641490]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 21
 text = "1"

@@ -1,5 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://6lg0wm2cmc00"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wncaf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hduts"]
 bg_color = Color(0.627451, 0.5803922, 0.6431373, 0)
 border_width_left = 2
@@ -45,6 +48,9 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [resource]
+BluePlusBtn/base_type = &"Button"
+BluePlusBtn/colors/font_color = Color(0.7145799, 0.73112077, 0.9873783, 1)
+BluePlusBtn/styles/normal = SubResource("StyleBoxFlat_wncaf")
 ProgressBar/colors/font_color = Color(0.87058824, 0.87058824, 0.87058824, 0)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_hduts")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_kiwll")
@@ -52,7 +58,6 @@ blackLabel/base_type = &"Label"
 blackLabel/colors/font_color = Color(0, 0, 0, 1)
 greenLabel/base_type = &"Label"
 greenLabel/colors/font_color = Color(0.34509805, 0.59607846, 0.22352941, 1)
-roundedBtn/base_type = &"Button"
 roundedBtn/styles/hover = SubResource("StyleBoxFlat_pvayc")
 roundedBtn/styles/normal = SubResource("StyleBoxFlat_kyomd")
 roundedBtn/styles/pressed = SubResource("StyleBoxFlat_djh02")
