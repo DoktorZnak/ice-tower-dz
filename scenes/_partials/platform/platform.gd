@@ -4,9 +4,9 @@ extends TileMapLayer
 @export var count: int = 1
 @export var can_collapse = true
 
-const LEFT_EDGE = Vector2i(1, 0)
-const MIDDLE_PIECE = Vector2i(2, 0)
-const RIGHT_EDGE = Vector2i(3, 0)
+const LEFT_EDGE = Vector2i(0, 0)
+const MIDDLE_PIECE = Vector2i(1, 0)
+const RIGHT_EDGE = Vector2i(2, 0)
 
 var is_falling = false
 
@@ -19,10 +19,10 @@ func draw_platform():
 	
 	var half_len = length / 2
 	
-	set_cell(Vector2i(-half_len - 1, 0), 0, LEFT_EDGE)
+	set_cell(Vector2i(-half_len - 1, 0), 1, LEFT_EDGE)
 	for i in range(length):
-		set_cell(Vector2i(-half_len + i, 0), 0, MIDDLE_PIECE)
-	set_cell(Vector2i(-half_len + length, 0), 0, RIGHT_EDGE)
+		set_cell(Vector2i(-half_len + i, 0), 1, MIDDLE_PIECE)
+	set_cell(Vector2i(-half_len + length, 0), 1, RIGHT_EDGE)
 
 func draw_label():
 	$Label.text = str(count)
