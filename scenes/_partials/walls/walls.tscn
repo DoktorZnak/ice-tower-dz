@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cmcle5yjr66jl"]
+
+[ext_resource type="Texture2D" uid="uid://bu3uyd3k6vg0s" path="res://assets/wall.png" id="1_u16su"]
+[ext_resource type="Script" uid="uid://d1k36hfka6lgj" path="res://scenes/_partials/walls/walls.gd" id="2_wcvdy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5jka"]
+texture = ExtResource("1_u16su")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q66q0"]
+tile_size = Vector2i(48, 48)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_t5jka")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u16su"]
+size = Vector2(1152, 326)
+
+[node name="Walls" type="TileMapLayer" unique_id=395905736]
+tile_set = SubResource("TileSet_q66q0")
+script = ExtResource("2_wcvdy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=9174708]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1028888740]
+position = Vector2(0, 163)
+shape = SubResource("RectangleShape2D_u16su")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

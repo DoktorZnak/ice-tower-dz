@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://v3ge55jumfgx" path="res://scenes/main/main.gd" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://cx8yf38hxuu2i" path="res://scenes/_partials/player/player.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://dk4c66p2rtvdg" path="res://scenes/_partials/level_ui/level_ui.tscn" id="5_6q06x"]
-[ext_resource type="Texture2D" uid="uid://bu3uyd3k6vg0s" path="res://assets/wall-69.png" id="5_hujxm"]
+[ext_resource type="PackedScene" uid="uid://cmcle5yjr66jl" path="res://scenes/_partials/walls/walls.tscn" id="6_ow5a4"]
 [ext_resource type="Texture2D" uid="uid://t2jtcuc2b7fn" path="res://assets/Sprite-BG.png" id="6_yyfjg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3cfh"]
@@ -18,34 +18,6 @@ texture_region_size = Vector2i(48, 48)
 tile_size = Vector2i(48, 48)
 sources/2 = SubResource("TileSetAtlasSource_a8run")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hujxm"]
-texture = ExtResource("5_hujxm")
-texture_region_size = Vector2i(48, 48)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_6q06x"]
-tile_size = Vector2i(48, 48)
-physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 0
-sources/1 = SubResource("TileSetAtlasSource_hujxm")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyfjg"]
-texture = ExtResource("5_hujxm")
-texture_region_size = Vector2i(48, 48)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 22.7821, -24, 24, 24, -24, 24)
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_l3cfh"]
-tile_size = Vector2i(48, 48)
-physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 0
-sources/1 = SubResource("TileSetAtlasSource_yyfjg")
-
 [node name="Main" type="Node2D" unique_id=1794716377]
 script = ExtResource("1_l3cfh")
 metadata/_edit_vertical_guides_ = [-350.0, 350.0]
@@ -54,6 +26,7 @@ metadata/_edit_vertical_guides_ = [-350.0, 350.0]
 physics_interpolation_mode = 1
 
 [node name="GameOverArea2D" type="Area2D" parent="Camera" unique_id=459627512]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/GameOverArea2D" unique_id=10168673]
 position = Vector2(0, 686)
@@ -69,13 +42,6 @@ tile_set = SubResource("TileSet_ouso4")
 length = 42
 can_collapse = false
 
-[node name="LeftWall" type="TileMapLayer" parent="." unique_id=1299849622]
-tile_set = SubResource("TileSet_6q06x")
-
-[node name="RightWall" type="TileMapLayer" parent="." unique_id=334268203]
-tile_map_data = PackedByteArray("AAALAAAAAAAAAAUAAAALAP//AAAAAAUAAAALAP7/AAAAAAUAAAALAP3/AAAAAAUAAAALAAEAAAAAAAUAAAALAAIAAAAAAAUAAAALAAMAAAAAAAUAAAALAAQAAAAAAAUAAAALAAUAAAAAAAUAAAALABQAAAAAAAUAAAALABUAAAAAAAUAAAALABMAAAAAAAUAAAALABIAAAAAAAUAAAALABEAAAAAAAUAAAALABAAAAAAAAUAAAALAA8AAAAAAAUAAAALAA4AAAAAAAUAAAALAA0AAAAAAAUAAAALAAwAAAAAAAUAAAALAAsAAAAAAAUAAAALAAoAAAAAAAUAAAALAAkAAAAAAAUAAAALAAgAAAAAAAUAAAALAAcAAAAAAAUAAAALAAYAAAAAAAUAAAALABYAAAAAAAUAAAALABcAAAAAAAUAAAA=")
-tile_set = SubResource("TileSet_l3cfh")
-
 [node name="Player" parent="." unique_id=1051229409 instance=ExtResource("2_iuonh")]
 position = Vector2(-70, -50)
 
@@ -88,5 +54,7 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
+
+[node name="Walls" parent="." unique_id=395905736 instance=ExtResource("6_ow5a4")]
 
 [connection signal="body_entered" from="Camera/GameOverArea2D" to="." method="_on_game_over_area_2d_body_entered"]
