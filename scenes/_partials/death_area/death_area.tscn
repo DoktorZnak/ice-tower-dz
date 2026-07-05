@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://2lrargi40a7l"]
+
+[ext_resource type="Script" uid="uid://ioawiueowbf6" path="res://scenes/_partials/death_area/death_area.gd" id="1_yt2id"]
+[ext_resource type="Texture2D" uid="uid://bmylr54i2whb4" path="res://assets/lava.png" id="2_ek3qp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svoqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt2id"]
+size = Vector2(1150, 324)
+
+[sub_resource type="Gradient" id="Gradient_ek3qp"]
+offsets = PackedFloat32Array(0, 0.7374392, 1)
+colors = PackedColorArray(1, 0.2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fetk4"]
+gradient = SubResource("Gradient_ek3qp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dco1w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(575, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+damping_min = 50.000004
+damping_max = 100.00001
+scale_max = 5.0
+color = Color(1, 0.2, 0, 1)
+color_ramp = SubResource("GradientTexture1D_fetk4")
+
+[node name="DeathArea" type="Area2D" unique_id=934620203]
+collision_layer = 0
+script = ExtResource("1_yt2id")
+metadata/_edit_vertical_guides_ = [-575.0, -375.0]
+metadata/_edit_horizontal_guides_ = [-162.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=984663670]
+shape = SubResource("WorldBoundaryShape2D_svoqv")
+
+[node name="PointAbovePlayerArea" type="Area2D" parent="." unique_id=873507391]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointAbovePlayerArea" unique_id=1889438168]
+shape = SubResource("RectangleShape2D_yt2id")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=408183284]
+texture_repeat = 2
+position = Vector2(0, 32)
+texture = ExtResource("2_ek3qp")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 64)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1857378283]
+position = Vector2(0, 1)
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_dco1w")
+
+[connection signal="body_entered" from="." to="." method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="PointAbovePlayerArea" to="." method="_on_point_above_player_area_body_entered"]

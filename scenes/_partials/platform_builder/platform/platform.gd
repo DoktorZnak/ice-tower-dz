@@ -1,4 +1,4 @@
-extends TileMapLayer
+class_name Platform extends TileMapLayer
 
 @export var length: int = 1
 @export var count: int = 1

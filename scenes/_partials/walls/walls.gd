@@ -40,6 +40,18 @@ func build_walls_up_to(target_y_pixel: float, level: int):
 		build_wall_row(last_built_wall_y_tile, level)
 
 
+func _ready() -> void:
+	for y in range(1, 7):
+		build_wall_row(y, main.current_game_level)
+	build_walls_up_to(-200, main.current_game_level)
+	$Area2D.global_position.y = -200
+
+func _on_area_2d_body_entered(_body):
+	$Area2D.global_position.y -= 600
+	build_walls_up_to($Area2D.global_position.y, main.current_game_level)
+	#clean_old_walls()
+
+
 #func clean_old_walls(target_y_pixel: float):
 	#var target_tile_y = int(floor(target_y_pixel / TILE_SIZE_Y))
 	#
@@ -48,16 +60,3 @@ func build_walls_up_to(target_y_pixel: float, level: int):
 	#
 	#for x_tile in range(start_x, end_x + 1):
 		#erase_cell(Vector2i(x_tile, target_tile_y))
-
-
-func _ready() -> void:
-	for y in range(1, 7):
-		build_wall_row(y, main.current_game_lavel)
-	build_walls_up_to(-200, main.current_game_lavel)
-	$Area2D.global_position.y = -200
-
-func _on_area_2d_body_entered(_body):
-	print('player entered walls area 2d')
-	$Area2D.global_position.y -= 600
-	build_walls_up_to($Area2D.global_position.y, main.current_game_lavel)
-	#clean_old_walls()

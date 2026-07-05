@@ -93,5 +93,9 @@ func play_animations():
 		$AnimatedSprite2D.play("run" if is_player_grounded() else "jump_direction")
 		$AnimatedSprite2D.flip_h = direction < 0	 
 
+func updateCamera(y):
+	$Camera2D.limit_bottom = y + 64
+
 func _ready():
 	update_players_stats()
+	EventBus.lava_moved.connect(updateCamera)

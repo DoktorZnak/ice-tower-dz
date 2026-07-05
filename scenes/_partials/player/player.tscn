@@ -120,3 +120,8 @@ script = ExtResource("4_lvxji")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1462671744]
 position = Vector2(0.71428573, 10.714286)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=421430983]
+limit_left = -575
+limit_right = 575
+limit_bottom = 336
