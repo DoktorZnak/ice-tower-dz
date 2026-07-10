@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmcle5yjr66jl" path="res://scenes/_partials/walls/walls.tscn" id="6_ow5a4"]
 [ext_resource type="Texture2D" uid="uid://t2jtcuc2b7fn" path="res://assets/Sprite-BG.png" id="6_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://2lrargi40a7l" path="res://scenes/_partials/death_area/death_area.tscn" id="7_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://5pi2nt3aspsm" path="res://scenes/_partials/upgrade_cards/upgrade_card/upgrade_card.tscn" id="8_yyfjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8run"]
 texture = ExtResource("6_yyfjg")
@@ -49,3 +50,7 @@ tile_set = SubResource("TileSet_ouso4")
 
 [node name="Player" parent="." unique_id=1051229409 instance=ExtResource("2_iuonh")]
 position = Vector2(-70, -50)
+
+[node name="UpgradeCard" parent="." unique_id=1151323838 instance=ExtResource("8_yyfjg")]
+tome_type = "jump"
+tome_rarity = "epic"

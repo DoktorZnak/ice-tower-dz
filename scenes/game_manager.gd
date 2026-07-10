@@ -11,7 +11,7 @@ var stat_points: int = 40
 
 var players_stats = {
 	'acc': {'value': 100, 'label': 'Acceleration'},
-	'maxspeed': {'value': 100, 'label': 'Max Speed'},
+	'maxspeed': {'value': 100, 'label': 'Speed'},
 	'jump': {'value': 100, 'label': 'Jump'},
 	'friction': {'value': 100, 'label': 'Friction'},
 }

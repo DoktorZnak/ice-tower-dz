@@ -12,6 +12,9 @@ func _physics_process(_delta):
 		
 	if Input.is_action_just_pressed("reset_game"):
 		get_tree().reload_current_scene()
+	
+	if Input.is_action_just_pressed('pause'):
+		get_tree().paused = true
 		
 func trigger_game_over():
 	is_game_over = true
