@@ -6,7 +6,7 @@ var is_game_over = false
 func _ready():
 	randomize()
 
-func _physics_process(_delta):
+func _process(_delta): # it doesnt need to be a physic process
 	if is_game_over:
 		return
 		
@@ -14,7 +14,7 @@ func _physics_process(_delta):
 		get_tree().reload_current_scene()
 	
 	if Input.is_action_just_pressed('pause'):
-		get_tree().paused = true
+		$UpgradeCards.open_upgrade_menu()
 		
 func trigger_game_over():
 	is_game_over = true

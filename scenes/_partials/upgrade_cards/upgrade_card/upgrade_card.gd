@@ -21,7 +21,7 @@ func setup_tome_ui():
 	if tome_type == 'tax': 
 		%TomeNameLabel.set('text', "Tax Tome")
 		%StatsContainer.set('visible', false)
-		return # Exit early
+		return
 
 	var player_stat = GameManager.players_stats[tome_type] 
 	var current_value = player_stat.value 
@@ -39,5 +39,5 @@ func get_random_bonus_by_rarity():
 	return 0
 
 
-func _ready() -> void: 
+func setup(): # needs to be executed from parent node
 	setup_tome_ui()

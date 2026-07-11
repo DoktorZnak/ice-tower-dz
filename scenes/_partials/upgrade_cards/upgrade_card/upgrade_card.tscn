@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5pi2nt3aspsm"]
 
-[ext_resource type="Texture2D" uid="uid://bhr30wjaew4dp" path="res://assets/tomes/accelerate-tome.png" id="1_f36hs"]
+[ext_resource type="Texture2D" uid="uid://bhr30wjaew4dp" path="res://assets/tomes/acc-tome.png" id="1_f36hs"]
 [ext_resource type="Script" uid="uid://bg5adbfoy0tve" path="res://scenes/_partials/upgrade_cards/upgrade_card/upgrade_card.gd" id="1_qy4wi"]
 [ext_resource type="Texture2D" uid="uid://nnlty000hfev" path="res://assets/arrow-right.png" id="2_f2t78"]
 
@@ -13,10 +13,10 @@ size_flags_horizontal = 4
 script = ExtResource("1_qy4wi")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1386269740]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 5
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
@@ -31,13 +31,19 @@ theme_override_constants/separation = 5
 [node name="RarityLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1890262351]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
 text = "Common"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1222881874]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1453196494]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -51,7 +57,7 @@ texture = ExtResource("1_f36hs")
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1363142060]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=844253238]
 layout_mode = 2
@@ -59,7 +65,7 @@ layout_mode = 2
 [node name="TomeNameLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=921523065]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Acceleration Tome"
 
 [node name="StatsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1608815088]
