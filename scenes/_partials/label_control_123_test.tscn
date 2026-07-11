@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://peucw7rb4kv3"]
+
+[node name="labelControl123test" type="HBoxContainer" unique_id=844141312]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=405073241]
+layout_mode = 2
+text = "dwadwa"

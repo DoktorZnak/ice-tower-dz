@@ -10,21 +10,34 @@
 
 [sub_resource type="Theme" id="Theme_soj8l"]
 
-[node name="UpgradeCard" type="Control" unique_id=1151323838]
+[node name="UpgradeCard" type="Control" unique_id=75190192]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -8.0
+offset_right = -13.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_qy4wi")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1870973097]
 layout_mode = 1
 offset_left = -211.0
-offset_top = -62.0
+offset_top = -73.0
 offset_right = 201.0
-offset_bottom = 64.0
+offset_bottom = 53.0
+
+[node name="RarityLabel" type="Label" parent="." unique_id=1248897447]
+layout_mode = 0
+offset_left = -191.0
+offset_top = -70.0
+offset_right = -120.0
+offset_bottom = -47.0
+text = "Common"
 
 [node name="PanelContainer2" type="PanelContainer" parent="." unique_id=863901321]
 layout_mode = 0
