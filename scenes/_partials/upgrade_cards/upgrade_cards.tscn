@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bs5qgl1ddu2cb" path="res://scenes/_partials/upgrade_cards/upgrade_cards.gd" id="1_54ljb"]
 [ext_resource type="PackedScene" uid="uid://5pi2nt3aspsm" path="res://scenes/_partials/upgrade_cards/upgrade_card/upgrade_card.tscn" id="1_ho634"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54ljb"]
+bg_color = Color(0.12941177, 0.14117648, 0.20784314, 1)
+
 [node name="UpgradeCards" type="CanvasLayer" unique_id=202073829]
 process_mode = 2
 scale = Vector2(1.0133108, 1.012641)
@@ -21,6 +24,7 @@ offset_right = 225.0
 offset_bottom = 194.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_54ljb")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer3" unique_id=2016686291]
 layout_mode = 2

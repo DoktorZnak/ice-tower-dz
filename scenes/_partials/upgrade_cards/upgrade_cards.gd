@@ -9,7 +9,6 @@ var rarities: Array[String] = ["common", "uncommon", "rare"]
 	$PanelContainer3/MarginContainer/VBoxContainer/UpgradeCard3
 ]
 
-
 func open_upgrade_menu():
 	for card in cards:
 		card.tome_type = types.pick_random()

@@ -4,12 +4,27 @@
 [ext_resource type="Script" uid="uid://bg5adbfoy0tve" path="res://scenes/_partials/upgrade_cards/upgrade_card/upgrade_card.gd" id="1_qy4wi"]
 [ext_resource type="Texture2D" uid="uid://nnlty000hfev" path="res://assets/arrow-right.png" id="2_f2t78"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy4wi"]
+bg_color = Color(0.24313726, 0.2509804, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldha8"]
+bg_color = Color(0.57, 0.57, 0.57, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="Theme" id="Theme_qy4wi"]
 
 [sub_resource type="Theme" id="Theme_ldha8"]
 
 [node name="UpgradeCard" type="PanelContainer" unique_id=2100432309]
 size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qy4wi")
 script = ExtResource("1_qy4wi")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1386269740]
@@ -34,13 +49,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Common"
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1222881874]
+[node name="PanelTextureRect" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1222881874]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ldha8")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1453196494]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelTextureRect" unique_id=1453196494]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -49,7 +66,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1270188815]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelTextureRect/MarginContainer" unique_id=1270188815]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_f36hs")
