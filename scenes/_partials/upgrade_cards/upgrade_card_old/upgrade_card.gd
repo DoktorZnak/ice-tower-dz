@@ -17,7 +17,7 @@ var new_value = 0
 @onready var rarity_label = %RarityLabel
 @onready var texture_rect = %TextureRect
 @onready var tome_name_label = %TomeNameLabel
-@onready var stats_hbox = %StatsContainer
+@onready var stats_hbox = %HBoxContainer
 @onready var current_state_label = %CurrentStateLabel
 @onready var new_state_label = %NewStateLabel
 

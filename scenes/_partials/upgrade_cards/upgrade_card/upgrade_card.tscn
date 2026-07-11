@@ -8,82 +8,83 @@
 
 [sub_resource type="Theme" id="Theme_ldha8"]
 
-[sub_resource type="Theme" id="Theme_soj8l"]
-
-[node name="UpgradeCard" type="Control" unique_id=75190192]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -8.0
-offset_right = -13.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UpgradeCard" type="PanelContainer" unique_id=2100432309]
 size_flags_horizontal = 4
 script = ExtResource("1_qy4wi")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1870973097]
-layout_mode = 1
-offset_left = -211.0
-offset_top = -73.0
-offset_right = 201.0
-offset_bottom = 53.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1386269740]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
 
-[node name="RarityLabel" type="Label" parent="." unique_id=1248897447]
-layout_mode = 0
-offset_left = -191.0
-offset_top = -70.0
-offset_right = -120.0
-offset_bottom = -47.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=356232574]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1448802935]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="RarityLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1890262351]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Common"
 
-[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=863901321]
-layout_mode = 0
-offset_left = -193.0
-offset_top = -41.0
-offset_right = -111.0
-offset_bottom = 41.0
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1222881874]
+layout_mode = 2
 
-[node name="TomeSprite" type="Sprite2D" parent="PanelContainer2" unique_id=801709763]
-position = Vector2(43, 41)
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1453196494]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1270188815]
+unique_name_in_owner = true
+layout_mode = 2
 texture = ExtResource("1_f36hs")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1383892083]
-layout_mode = 0
-offset_left = -90.0
-offset_right = 116.0
-offset_bottom = 37.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1363142060]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 10
 
-[node name="StateLabel" type="Label" parent="HBoxContainer" unique_id=1851001427]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=844253238]
+layout_mode = 2
+
+[node name="TomeNameLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=921523065]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Acceleration Tome"
+
+[node name="StatsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1608815088]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CurrentStateLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/StatsContainer" unique_id=1495705513]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_qy4wi")
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 18
 text = "Acceleration: 84%"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1185179243]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/StatsContainer" unique_id=2054762757]
 custom_minimum_size = Vector2(25, 10)
 layout_mode = 2
 texture = ExtResource("2_f2t78")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NewValueLabel" type="Label" parent="HBoxContainer" unique_id=198874941]
+[node name="NewStateLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/StatsContainer" unique_id=2062299998]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_ldha8")
 theme_type_variation = &"greenLabel"
 theme_override_font_sizes/font_size = 18
 text = "92%"
-
-[node name="Title" type="Label" parent="." unique_id=1071779238]
-layout_mode = 0
-offset_left = -89.0
-offset_top = -29.0
-offset_right = 55.0
-offset_bottom = -6.0
-theme = SubResource("Theme_soj8l")
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 24
-text = "Acceleration Tome"

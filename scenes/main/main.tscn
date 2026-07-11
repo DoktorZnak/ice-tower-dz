@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cmcle5yjr66jl" path="res://scenes/_partials/walls/walls.tscn" id="6_ow5a4"]
 [ext_resource type="Texture2D" uid="uid://t2jtcuc2b7fn" path="res://assets/Sprite-BG.png" id="6_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://2lrargi40a7l" path="res://scenes/_partials/death_area/death_area.tscn" id="7_yyfjg"]
-[ext_resource type="PackedScene" uid="uid://5pi2nt3aspsm" path="res://scenes/_partials/upgrade_cards/upgrade_card/upgrade_card.tscn" id="9_b1x3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8run"]
 texture = ExtResource("6_yyfjg")
@@ -50,38 +49,3 @@ tile_set = SubResource("TileSet_ouso4")
 
 [node name="Player" parent="." unique_id=1051229409 instance=ExtResource("2_iuonh")]
 position = Vector2(-70, -50)
-
-[node name="UpgradeCard" parent="." unique_id=75190192 instance=ExtResource("9_b1x3f")]
-tome_rarity = "rare"
-
-[node name="UpgradeCard2" parent="." unique_id=1604557018 instance=ExtResource("9_b1x3f")]
-offset_left = -10.0
-offset_top = -143.0
-offset_right = -10.0
-offset_bottom = -143.0
-tome_type = "acc"
-tome_rarity = "rare"
-
-[node name="UpgradeCard3" parent="." unique_id=112819573 instance=ExtResource("9_b1x3f")]
-offset_left = -10.0
-offset_top = 130.0
-offset_right = -10.0
-offset_bottom = 130.0
-tome_type = "maxspeed"
-tome_rarity = "rare"
-
-[node name="UpgradeCard4" parent="." unique_id=255210640 instance=ExtResource("9_b1x3f")]
-offset_left = -8.0
-offset_top = 268.0
-offset_right = -8.0
-offset_bottom = 268.0
-tome_type = "jump"
-tome_rarity = "rare"
-
-[node name="UpgradeCard5" parent="." unique_id=1011828018 instance=ExtResource("9_b1x3f")]
-offset_left = 424.0
-offset_top = -67.0
-offset_right = 424.0
-offset_bottom = -67.0
-tome_type = "friction"
-tome_rarity = "rare"
