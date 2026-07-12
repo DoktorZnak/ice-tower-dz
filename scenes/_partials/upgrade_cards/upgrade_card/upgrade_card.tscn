@@ -6,6 +6,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy4wi"]
 bg_color = Color(0.24313726, 0.2509804, 0.3137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.24313726, 0.2509804, 0.3137255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldha8"]
 bg_color = Color(0.57, 0.57, 0.57, 1)
@@ -111,3 +120,6 @@ theme = SubResource("Theme_ldha8")
 theme_type_variation = &"greenLabel"
 theme_override_font_sizes/font_size = 18
 text = "92%"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
