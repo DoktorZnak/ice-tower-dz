@@ -7,6 +7,8 @@ func _ready():
 	p = owner as Player
 
 func _physics_process(delta):
+	if p.is_on_floor():
+		p.velocity.y = 100
 	if p.is_player_grounded():
 		p.coyote_timer = p.COYOTE_DURATION
 		p.trigger_collapsing_platform()

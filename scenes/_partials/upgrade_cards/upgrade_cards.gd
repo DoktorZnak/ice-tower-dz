@@ -21,6 +21,8 @@ func open_upgrade_menu():
 
 func _ready():
 	randomize()
+	for card in cards:
+		card.card_clicked.connect(self.hide)
 	
 func _process(_delta):
 	if Input.is_action_just_pressed('unpause'):

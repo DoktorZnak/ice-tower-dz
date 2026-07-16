@@ -3,6 +3,8 @@ extends Control
 @export_enum("tax","acc","maxspeed","jump","friction") var tome_type = 'tax' 
 @export_enum("common", "uncommon", "rare") var tome_rarity: String = "common"
 
+signal card_clicked
+
 var rarity_color = {
 	'common': '#FFFFFF',
 	'uncommon': '#1EFF00',
@@ -43,9 +45,9 @@ func setupPanelTextureRect():
 
 func get_random_bonus_by_rarity():
 	match tome_rarity:
-		"common":   return randi_range(3, 6)
-		"uncommon": return randi_range(7, 14)
-		"rare":     return randi_range(15, 25)
+		"common":   return randi_range(10, 20)
+		"uncommon": return randi_range(21, 41)
+		"rare":     return randi_range(42, 60)
 	return 0
 
 
@@ -62,3 +64,11 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	$".".add_theme_stylebox_override("panel", upgrade_card_style)
+
+func _on_gui_input(event: InputEvent):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			if(tome_type != 'tax'):
+				GameManager.set_stat_point(tome_type, new_value)
+			card_clicked.emit()
+			get_tree().paused = false

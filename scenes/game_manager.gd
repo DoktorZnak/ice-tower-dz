@@ -10,21 +10,18 @@ var level: int = 1
 var stat_points: int = 40
 
 var players_stats = {
-	'acc': {'value': 100, 'label': 'Acceleration'},
-	'maxspeed': {'value': 100, 'label': 'Speed'},
-	'jump': {'value': 100, 'label': 'Jump'},
-	'friction': {'value': 100, 'label': 'Friction'},
+	'acc': {'value': 200, 'label': 'Acceleration'},
+	'maxspeed': {'value': 150, 'label': 'Speed'},
+	'jump': {'value': 150, 'label': 'Jump'},
+	'friction': {'value': 200, 'label': 'Friction'},
 }
 
 var base_speed = 200.0
 var jump_force = -450.0
 
-func add_stat_point(stat_name: String) -> bool:
-	if stat_points <= 0: return false
-	if players_stats[stat_name]["value"] >= 100: return false
-
-	stat_points -= 1
-	players_stats[stat_name]["value"] += 1
+func set_stat_point(stat_name, value) -> bool:
+	players_stats[stat_name]["value"] = value
+	EventBus.stats_updated.emit()
 	return true
 	
 	

@@ -7,19 +7,19 @@ var platform_counter = 1
 var next_spawn_y = 0
 
 const LEVEL_CONFIGS = {
-	1: {'center_offset': 350, 'platform_spacing': 120}, 
+	1: {'center_offset': 350, 'platform_spacing': 120},
 	2: {'center_offset': 398, 'platform_spacing': 140},
 	3: {'center_offset': 446, 'platform_spacing': 160},
 	4: {'center_offset': 494, 'platform_spacing': 180},
 	5: {'center_offset': 542, 'platform_spacing': 200}
 }
 
-func spawn_next_platform(level: int, custom_length=null, can_collapse=true):
+func spawn_next_platform(level: int, custom_length = null):
 	platform_counter += 1
 	var new_platform = platform_scene.instantiate() as Platform
 	new_platform.count = platform_counter
 	new_platform.length = custom_length if custom_length else randi_range(11, 14)
-	new_platform.can_collapse = can_collapse
+	new_platform.main = main
 	
 	var platform_half_length = (new_platform.length * 22 / 2)
 
@@ -33,7 +33,7 @@ func spawn_next_platform(level: int, custom_length=null, can_collapse=true):
 	next_spawn_y -= platform_spacing
 
 func _ready():
-	spawn_next_platform(main.current_game_level, 50, false)
+	spawn_next_platform(main.current_game_level, 50)
 	for y in range(1, 4):
 		spawn_next_platform(main.current_game_level)
 	spawn_next_platform(main.current_game_level)
@@ -50,5 +50,5 @@ func _on_area_2d_body_entered(_body):
 			#continue
 			#
 		#if platform.global_position.y > cleanup_y:
-			#if platform.has_method("force_collapse"):
+			#if platform.has_method("collapse"):
 				#platform.force_collapse()

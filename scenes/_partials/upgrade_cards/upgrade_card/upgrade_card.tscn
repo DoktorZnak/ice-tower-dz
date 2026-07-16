@@ -32,24 +32,31 @@ corner_radius_bottom_left = 5
 [sub_resource type="Theme" id="Theme_ldha8"]
 
 [node name="UpgradeCard" type="PanelContainer" unique_id=2100432309]
+offset_right = 560.0
+offset_bottom = 147.0
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_qy4wi")
 script = ExtResource("1_qy4wi")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1386269740]
-custom_minimum_size = Vector2(550, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 20
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=356232574]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1448802935]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 5
 
 [node name="RarityLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1890262351]
@@ -82,8 +89,8 @@ texture = ExtResource("1_f36hs")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1363142060]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/margin_bottom = 5
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=844253238]
 layout_mode = 2
@@ -121,5 +128,6 @@ theme_type_variation = &"greenLabel"
 theme_override_font_sizes/font_size = 18
 text = "92%"
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

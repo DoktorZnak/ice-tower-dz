@@ -7,7 +7,7 @@ const BOUNCE_FORCE = 0.8
 
 const BASE_JUMP_VELOCITY = -200
 const MAX_JUMP_VELOCITY = -900
-const JUMP_SPEED_BONUS = 0.6
+
 
 const COYOTE_DURATION = 0.1 # Czas na skok po spadnięciu (w sekundach)
 const BUFFER_DURATION = 0.1 # Jak wcześnie przed ziemią można wcisnąć skok
@@ -15,10 +15,12 @@ const BUFFER_DURATION = 0.1 # Jak wcześnie przed ziemią można wcisnąć skok
 var coyote_timer = 0.0
 var jump_buffer_timer = 0.0
 
-var calculated_acc = 1
-var calculated_maxspeed = 1
+var calculated_acc = 1.5
+var calculated_maxspeed = 2.5
 var calculated_friction = 1
-var jump_stat_modifier = 1
+var jump_stat_modifier = 2
+var jump_speed_bonus = 0.25
+var jump_bounce_bonus = 0.25
 var speed_before_collision = 0
 
 var is_grounded = true
@@ -36,10 +38,14 @@ func trigger_collapsing_platform():
 			collider.collapse()
 
 func update_players_stats():
-	calculated_acc = ACCELERATION * remap(GameManager.players_stats.acc.value, 1, 100, 1, 2.5)
-	calculated_maxspeed = MAX_SPEED * remap(GameManager.players_stats.maxspeed.value, 1, 100, 1, 4)
-	calculated_friction = FRICTION * remap(GameManager.players_stats.friction.value, 1, 100, 1, 14)
-	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, 100, 1, 2.4)
+	calculated_acc = ACCELERATION * remap(GameManager.players_stats.acc.value, 1, 200, 1.5, 5)
+	calculated_maxspeed = MAX_SPEED * remap(GameManager.players_stats.maxspeed.value, 1, 200, 2.5, 4)
+	calculated_friction = FRICTION * remap(GameManager.players_stats.friction.value, 1, 200, 1, 35)
+	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, 200, 2, 4)
+	
+	var average_stat = (GameManager.players_stats.maxspeed.value + GameManager.players_stats.jump.value) / 2.0
+	jump_speed_bonus = remap(average_stat, 1, 200, 0.25, 0.4)
+	jump_bounce_bonus = remap(average_stat, 1, 200, 0.25, 0.55)
 
 func handle_direction(delta):
 	var direction := Input.get_axis("left", "right")
@@ -61,7 +67,7 @@ func handle_jump(delta):
 		var mod_base_jump = BASE_JUMP_VELOCITY * jump_stat_modifier
 		var mod_max_jump = MAX_JUMP_VELOCITY * jump_stat_modifier
 		var horizontal_momentum = abs(velocity.x)
-		var extra_jump_force = horizontal_momentum * JUMP_SPEED_BONUS
+		var extra_jump_force = horizontal_momentum * jump_speed_bonus
 		var calculated_jump = mod_base_jump - extra_jump_force
 		velocity.y = clamp(calculated_jump, mod_max_jump, mod_base_jump)
 	
@@ -70,14 +76,13 @@ func handle_wall_bounce():
 	var wall_normal = get_wall_normal().x
 	velocity.x = wall_normal * actual_impact_speed * 0.4
 	if not is_on_floor():
-		velocity.y -= actual_impact_speed * 0.5
+		velocity.y -= actual_impact_speed * jump_bounce_bonus
 
 func perform_move():
 	speed_before_collision = velocity.x
 	move_and_slide()
 
 func play_animations():
-	
 	if is_grounded == false and is_on_floor() == true:
 		var instance = dust.instantiate()
 		instance.global_position = $Marker2D.global_position
@@ -99,3 +104,4 @@ func updateCamera(y):
 func _ready():
 	update_players_stats()
 	EventBus.lava_moved.connect(updateCamera)
+	EventBus.stats_updated.connect(update_players_stats)
