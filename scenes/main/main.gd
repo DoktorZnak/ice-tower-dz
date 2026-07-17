@@ -1,10 +1,10 @@
 class_name MainScript extends Node2D 
 
-var current_game_level = 5 # 1-5
 var is_game_over = false
 
 func _ready():
 	randomize()
+	EventBus.game_level.emit(5)
 
 func _process(_delta): # it doesnt need to be a physic process
 	if is_game_over:

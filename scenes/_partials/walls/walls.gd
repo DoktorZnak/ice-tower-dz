@@ -15,10 +15,11 @@ const LEVEL_CONFIGS = {
 	5: {"left": -12, "right": 11}
 }
 
-func build_wall_row(y_tile: int, level: int):
-	var config = LEVEL_CONFIGS[level]
-	var left_start = config["left"]
-	var right_start = config["right"]
+var level_config = LEVEL_CONFIGS[1]
+
+func build_wall_row(y_tile: int):
+	var left_start = level_config["left"]
+	var right_start = level_config["right"]
 	
 	set_cell(Vector2i(left_start, y_tile), SOURCE_ID, Vector2i(0, 0), TileSetAtlasSource.TRANSFORM_FLIP_H)
 	set_cell(Vector2i(right_start, y_tile), SOURCE_ID, Vector2i(0, 0))
@@ -29,26 +30,29 @@ func build_wall_row(y_tile: int, level: int):
 	for i in range(1, BG_COLUMNS + 1):
 		set_cell(Vector2i(right_start + i, y_tile), SOURCE_ID, Vector2i(1, 0))
 
-func build_walls_up_to(target_y_pixel: float, level: int):
+func build_walls_up_to(target_y_pixel: float):
 	var target_tile_y = int(floor(target_y_pixel / TILE_SIZE_Y))
 	
 	if last_built_wall_y_tile == 0:
-		build_wall_row(0, level)
+		build_wall_row(0)
 	
 	while last_built_wall_y_tile > target_tile_y:
 		last_built_wall_y_tile -= 1
-		build_wall_row(last_built_wall_y_tile, level)
+		build_wall_row(last_built_wall_y_tile)
 
+func update_game_level(new_level):
+	level_config = LEVEL_CONFIGS[new_level]
 
 func _ready() -> void:
+	EventBus.game_level.connect(update_game_level)
 	for y in range(1, 7):
-		build_wall_row(y, main.current_game_level)
-	build_walls_up_to(-200, main.current_game_level)
+		build_wall_row(y)
+	build_walls_up_to(-200)
 	$Area2D.global_position.y = -200
 
 func _on_area_2d_body_entered(_body):
 	$Area2D.global_position.y -= 600
-	build_walls_up_to($Area2D.global_position.y, main.current_game_level)
+	build_walls_up_to($Area2D.global_position.y)
 	#clean_old_walls()
 
 
