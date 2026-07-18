@@ -2,6 +2,7 @@ extends Node
 
 var p: Player
 
+
 func _ready():
 	await owner.ready
 	p = owner as Player

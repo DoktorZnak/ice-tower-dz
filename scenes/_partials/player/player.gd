@@ -8,7 +8,6 @@ const BOUNCE_FORCE = 0.8
 const BASE_JUMP_VELOCITY = -200
 const MAX_JUMP_VELOCITY = -900
 
-
 const COYOTE_DURATION = 0.1 # Czas na skok po spadnięciu (w sekundach)
 const BUFFER_DURATION = 0.1 # Jak wcześnie przed ziemią można wcisnąć skok
 

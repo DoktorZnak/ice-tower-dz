@@ -39,7 +39,7 @@ func update_game_level(new_level):
 	game_level = new_level
 
 func _ready():
-	EventBus.game_level.connect(update_game_level)
+	EventBus.game_level_changed.connect(update_game_level)
 	spawn_next_platform(50)
 	for y in range(1, 4):
 		spawn_next_platform()

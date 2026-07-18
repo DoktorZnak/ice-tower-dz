@@ -11,13 +11,12 @@ var game_level:
 		level_config = LEVEL_CONFIGS[value]
 
 const LEVEL_CONFIGS = {
-	1: { 'fall_delay': 2000, 'fall_y_offset': 500, 'fall_duration': 10 },
-	2: { 'fall_delay': 1500, 'fall_y_offset': 500, 'fall_duration': 9 },
-	3: { 'fall_delay': 1000, 'fall_y_offset': 450, 'fall_duration': 7 },
-	4: { 'fall_delay': 500, 'fall_y_offset': 400, 'fall_duration': 5 },
-	5: { 'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 3 }
+	1: {'fall_delay': 2000, 'fall_y_offset': 500, 'fall_duration': 10},
+	2: {'fall_delay': 1500, 'fall_y_offset': 500, 'fall_duration': 9},
+	3: {'fall_delay': 1000, 'fall_y_offset': 450, 'fall_duration': 7},
+	4: {'fall_delay': 500, 'fall_y_offset': 400, 'fall_duration': 5},
+	5: {'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 3}
 }
-
 
 
 var is_falling = false
@@ -38,7 +37,7 @@ func draw_platform():
 		set_cell(Vector2i(-half_len + i, 0), 1, MIDDLE_PIECE)
 	set_cell(Vector2i(-half_len + length, 0), 1, RIGHT_EDGE)
 	
-	var TILE_SIZE = 16 
+	var TILE_SIZE = 16
 	var total_width = (length + 2) * TILE_SIZE
 
 func draw_label():
@@ -60,12 +59,10 @@ func start_falling():
 	var fall_duration = level_config['fall_duration']
 	var tween = create_tween().set_parallel(true).set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	tween.tween_property(self, "position:y", position.y + level_config['fall_y_offset'], fall_duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "modulate:a", 0.0, 1.0).set_delay(fall_duration -1).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(self, "modulate:a", 0.0, 1.0).set_delay(fall_duration - 1).set_trans(Tween.TRANS_LINEAR)
 	tween.chain().tween_callback(queue_free)
 
 
 func _ready():
 	draw_platform()
 	draw_label()
-	print(game_level)
-	print(level_config)

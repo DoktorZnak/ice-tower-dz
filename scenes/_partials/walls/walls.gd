@@ -2,17 +2,17 @@ extends TileMapLayer
 
 @onready var main := get_owner() as MainScript
 
-const TILE_SIZE_Y = 16 
-const BG_COLUMNS = 5   
+const TILE_SIZE_Y = 16
+const BG_COLUMNS = 5
 const SOURCE_ID = 0
 var last_built_wall_y_tile = 0
 
 const LEVEL_CONFIGS = {
-	1: {"left": -8,  "right": 7}, 
-	2: {"left": -9, "right": 8},
-	3: {"left": -10, "right": 9},
-	4: {"left": -11, "right": 10},
-	5: {"left": -12, "right": 11}
+	1: {"left": - 8, "right": 7},
+	2: {"left": - 9, "right": 8},
+	3: {"left": - 10, "right": 9},
+	4: {"left": - 11, "right": 10},
+	5: {"left": - 12, "right": 11}
 }
 
 var level_config = LEVEL_CONFIGS[1]
@@ -44,7 +44,7 @@ func update_game_level(new_level):
 	level_config = LEVEL_CONFIGS[new_level]
 
 func _ready() -> void:
-	EventBus.game_level.connect(update_game_level)
+	EventBus.game_level_changed.connect(update_game_level)
 	for y in range(1, 7):
 		build_wall_row(y)
 	build_walls_up_to(-200)
