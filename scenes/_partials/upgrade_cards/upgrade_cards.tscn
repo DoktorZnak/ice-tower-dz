@@ -3,14 +3,29 @@
 [ext_resource type="Script" uid="uid://bs5qgl1ddu2cb" path="res://scenes/_partials/upgrade_cards/upgrade_cards.gd" id="1_54ljb"]
 [ext_resource type="PackedScene" uid="uid://5pi2nt3aspsm" path="res://scenes/_partials/upgrade_cards/upgrade_card/upgrade_card.tscn" id="1_ho634"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjpft"]
+bg_color = Color(0, 0, 0, 0.7764706)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54ljb"]
-bg_color = Color(0.12941177, 0.14117648, 0.20784314, 1)
+bg_color = Color(0.6784314, 0.69411767, 0.7882353, 0.65882355)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="UpgradeCards" type="CanvasLayer" unique_id=202073829]
 process_mode = 2
 scale = Vector2(1.0133108, 1.012641)
 transform = Transform2D(1.0133108, 0, 0, 1.012641, 0, 0)
 script = ExtResource("1_54ljb")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=907077371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bjpft")
 
 [node name="PanelContainer3" type="PanelContainer" parent="." unique_id=1037430126]
 anchors_preset = 8
