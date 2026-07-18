@@ -1,9 +1,14 @@
 extends Control
 
-var random_xp = [1, 2, 3, 4, 5]
+var random_xp = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5]
 var current_xp = 0
-var xp_needed = 50
+var xp_needed = 10
 var level = 1
+
+var xp_bonus = 1
+
+func update_players_stats():
+	xp_bonus = remap(GameManager.players_stats.xp.value, 1, 200, 1, 5)
 
 func level_up():
 	var diff = current_xp - xp_needed
@@ -20,7 +25,7 @@ func update_progress_bar():
 func update_xp_label(amount):
 	var xp_label = $XPLabel.duplicate()
 	add_child(xp_label)
-	xp_label.text = "+" + str(amount)
+	xp_label.text = "+" + str(amount).trim_suffix(".0")
 	xp_label.modulate.a = 1.0
 	xp_label.visible = true
 	
@@ -31,16 +36,17 @@ func update_xp_label(amount):
 
 
 func _highest_score_changed(_highest_score):
-	var xp = random_xp.pick_random()
+	var xp = snapped(random_xp.pick_random() * xp_bonus, 0.01)
 	current_xp += xp
 	if current_xp >= xp_needed:
 		level_up()
 	update_progress_bar()
 	update_xp_label(xp)
 
-
 func _ready() -> void:
-	$HBoxContainer/ProgressBar.max_value = GameManager.xp_needed
-	$HBoxContainer/ProgressBar.value = GameManager.current_xp
-	$HBoxContainer/levelLabel.text = str(GameManager.level)
+	update_players_stats()
+	EventBus.stats_updated.connect(update_players_stats)
+	$HBoxContainer/ProgressBar.max_value = xp_needed
+	$HBoxContainer/ProgressBar.value = current_xp
+	$HBoxContainer/levelLabel.text = str(level)
 	EventBus.highest_score_changed.connect(_highest_score_changed)

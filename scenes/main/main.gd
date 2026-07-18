@@ -4,9 +4,9 @@ var is_game_over = false
 
 func _ready():
 	randomize()
-	EventBus.game_level_changed.emit(5)
+	EventBus.game_level_changed.emit(1)
 
-func _process(_delta): # it doesnt need to be a physic process
+func _process(_delta):
 	if is_game_over:
 		return
 		
@@ -18,4 +18,4 @@ func _process(_delta): # it doesnt need to be a physic process
 		
 func trigger_game_over():
 	is_game_over = true
-	get_tree().change_scene_to_file('res://scenes/menu/menu.tscn')
+	get_tree().reload_current_scene()

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var types: Array[String] = ["tax", "acc", "maxspeed", "jump", "friction"]
+var types: Array[String] = ["tax", "acc", "maxspeed", "jump", "friction", "xp"]
 var rarities: Array[String] = ["common", "uncommon", "rare"]
 
 @onready var cards: Array[Control] = [

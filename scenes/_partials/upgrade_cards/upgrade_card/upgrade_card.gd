@@ -1,6 +1,6 @@
 extends Control
 
-@export_enum("tax","acc","maxspeed","jump","friction") var tome_type = 'tax' 
+@export_enum("tax","acc","maxspeed","jump","friction", "xp") var tome_type = 'tax' 
 @export_enum("common", "uncommon", "rare") var tome_rarity: String = "common"
 
 signal card_clicked
