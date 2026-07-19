@@ -2,7 +2,7 @@ extends Node
 
 var p: Player
 
-var highest_score: int = 0
+var highest_score = 0
 var pixels_treshold = 400
 
 func update_players_stats():
@@ -18,4 +18,4 @@ func _physics_process(_delta):
 	var current_floor = int(abs(p.global_position.y) / pixels_treshold)
 	if current_floor > highest_score:
 		highest_score = current_floor
-		EventBus.highest_score_changed.emit(highest_score) 
+		EventBus.highest_score_changed.emit(highest_score)

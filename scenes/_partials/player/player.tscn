@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cltvwnbyjkfpo" path="res://assets/PC _ Computer - Icy Tower - Playable Characters - Harold the Homeboy & Disco Dave.png" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://cxm1511ym38vy" path="res://scenes/_partials/player/physics.gd" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://dokd4do30c8y4" path="res://scenes/_partials/player/score_track.gd" id="5_n3dhs"]
+[ext_resource type="Script" uid="uid://yntg2tp6rtv8" path="res://scenes/_partials/player/game_level_track.gd" id="6_liuav"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dovo2"]
 shader = ExtResource("2_lvxji")
@@ -129,3 +130,6 @@ limit_bottom = 336
 
 [node name="ScoreTrack" type="Node" parent="." unique_id=1035473791]
 script = ExtResource("5_n3dhs")
+
+[node name="GameLevelTrack" type="Node" parent="." unique_id=1625502147]
+script = ExtResource("6_liuav")

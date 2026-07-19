@@ -10,7 +10,7 @@ func _on_point_above_player_area_body_entered(_body):
 	EventBus.lava_moved.emit(new_position)
 
 func _on_death_area_body_entered(_body):
-	get_tree().change_scene_to_file('res://scenes/menu/menu.tscn')
+	print('game over!')
 
 func _ready():
 	$PointAbovePlayerArea.global_position.y = -800

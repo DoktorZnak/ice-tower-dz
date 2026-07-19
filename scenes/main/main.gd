@@ -4,18 +4,15 @@ var is_game_over = false
 
 func _ready():
 	randomize()
-	EventBus.game_level_changed.emit(1)
+	EventBus.player_level_changed.connect(on_player_level_up)
 
 func _process(_delta):
-	if is_game_over:
-		return
-
 	if Input.is_action_just_pressed("reset_game"):
 		get_tree().reload_current_scene()
+		GameManager.reset_stat_points()
 
 	if Input.is_action_just_pressed('pause'):
 		$UpgradeCards.open_upgrade_menu()
-
-func trigger_game_over():
-	is_game_over = true
-	get_tree().reload_current_scene()
+		
+func on_player_level_up(new_level):
+	$UpgradeCards.open_upgrade_menu()
