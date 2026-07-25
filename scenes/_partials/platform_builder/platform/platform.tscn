@@ -1,7 +1,20 @@
 [gd_scene format=3 uid="uid://k61cuk5rx2bq"]
 
 [ext_resource type="Script" uid="uid://b2nvuf36xsskl" path="res://scenes/_partials/platform_builder/platform/platform.gd" id="1_7j252"]
+[ext_resource type="Shader" uid="uid://cnyxpwdrnbg7u" path="res://scenes/_partials/platform_builder/platform/platform.gdshader" id="1_dl1tf"]
 [ext_resource type="Texture2D" uid="uid://dkui0ff36uw5e" path="res://assets/platform69.png" id="2_4p7kc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pnxd"]
+shader = ExtResource("1_dl1tf")
+shader_parameter/target_light_gray = Color(0.53, 0.50773996, 0.33919996, 1)
+shader_parameter/target_dark_blue = Color(0.10558334, 0.14, 0.057400003, 1)
+shader_parameter/target_med_gray = Color(0.17992, 0.26, 0.11439999, 1)
+shader_parameter/target_new_blue = Color(0.18770833, 0.25, 0.087500006, 1)
+shader_parameter/target_mid_blue = Color(0.27125, 0.5, 0.195, 1)
+shader_parameter/target_light_blue = Color(0.84705883, 0.87058824, 0.41568628, 1)
+shader_parameter/color_match_precision = 0.01
+shader_parameter/brightness = 0.0
+shader_parameter/saturation = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogs6m"]
 texture = ExtResource("2_4p7kc")
@@ -24,6 +37,7 @@ sources/1 = SubResource("TileSetAtlasSource_ogs6m")
 font_size = 8
 
 [node name="Platform" type="TileMapLayer" unique_id=1148782930]
+material = SubResource("ShaderMaterial_2pnxd")
 scale = Vector2(1.4, 1.4)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_j0qm6")

@@ -5,6 +5,7 @@ var is_game_over = false
 func _ready():
 	randomize()
 	EventBus.player_level_changed.connect(on_player_level_up)
+	EventBus.game_level_changed.emit(1)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset_game"):

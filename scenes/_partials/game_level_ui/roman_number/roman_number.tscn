@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://wg4sodp8p3vo"]
+
+[ext_resource type="Texture2D" uid="uid://bok7ped11pf85" path="res://assets/numbers/Number1.png" id="1_xo7cv"]
+[ext_resource type="Script" uid="uid://b0x71ee48n1j4" path="res://scenes/_partials/game_level_ui/roman_number/roman_number.gd" id="2_3xym2"]
+[ext_resource type="Script" uid="uid://lx7wa71r2dks" path="res://scenes/_partials/game_level_ui/roman_number/texture_rect.gd" id="3_6rikk"]
+
+[node name="RomanNumber" type="Control" unique_id=1593316967]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3xym2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1700391486]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xo7cv")
+script = ExtResource("3_6rikk")

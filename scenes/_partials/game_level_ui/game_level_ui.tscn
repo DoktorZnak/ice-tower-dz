@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b7ykk4acwi58k"]
+
+[ext_resource type="Script" uid="uid://cxl15khloecna" path="res://scenes/_partials/game_level_ui/game_level_ui.gd" id="1_h71ul"]
+[ext_resource type="PackedScene" uid="uid://wg4sodp8p3vo" path="res://scenes/_partials/game_level_ui/roman_number/roman_number.tscn" id="2_ggdpd"]
+
+[node name="GameLevelUi" type="CanvasLayer" unique_id=1274858996]
+script = ExtResource("1_h71ul")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1098820793]
+unique_name_in_owner = true
+offset_left = 542.0
+offset_right = 610.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="RomanNumber" parent="HBoxContainer" unique_id=1593316967 instance=ExtResource("2_ggdpd")]
+layout_mode = 2
+
+[node name="RomanNumber2" parent="HBoxContainer" unique_id=325979928 instance=ExtResource("2_ggdpd")]
+layout_mode = 2

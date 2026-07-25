@@ -2,11 +2,11 @@ extends Node
 
 var p: Player
 
-const LEVEL_THRESHOLDS = [10, 20, 30, 40]
+const LEVEL_THRESHOLDS = [15, 30, 60, 90]
 
 var game_score = 0
-var current_game_level = 0
-var pixels_treshold = 400
+var current_game_level = 1
+var pixels_treshold = 200
 
 func check_level_up(score):
 	var new_level = 1

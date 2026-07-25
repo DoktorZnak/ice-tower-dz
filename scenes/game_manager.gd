@@ -2,10 +2,10 @@
 extends Node
 
 var players_stats = {
-	'acc': {'value': 1, 'label': 'Acceleration'},
-	'maxspeed': {'value': 1, 'label': 'Speed'},
-	'jump': {'value': 1, 'label': 'Jump'},
-	'friction': {'value': 1, 'label': 'Friction'},
+	'acc': {'value': 200, 'label': 'Acceleration'},
+	'maxspeed': {'value': 200, 'label': 'Speed'},
+	'jump': {'value': 200, 'label': 'Jump'},
+	'friction': {'value': 200, 'label': 'Friction'},
 	'xp': {'value': 1, 'label': 'XP Bonus'}
 }
 

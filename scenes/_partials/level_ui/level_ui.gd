@@ -2,7 +2,7 @@ extends Control
 
 var random_xp = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5]
 var current_xp = 0
-var xp_needed = 10
+var xp_needed = 400
 var level = 1
 
 var xp_bonus = 1

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://br1cqd800x1kl"]
 
 [ext_resource type="Script" uid="uid://v3ge55jumfgx" path="res://scenes/main/main.gd" id="1_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://b7ykk4acwi58k" path="res://scenes/_partials/game_level_ui/game_level_ui.tscn" id="2_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://cx8yf38hxuu2i" path="res://scenes/_partials/player/player.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://dk4c66p2rtvdg" path="res://scenes/_partials/level_ui/level_ui.tscn" id="5_6q06x"]
 [ext_resource type="PackedScene" uid="uid://b74vv2ee1721f" path="res://scenes/_partials/platform_builder/platform_builder.tscn" id="6_hujxm"]
@@ -21,6 +22,8 @@ sources/2 = SubResource("TileSetAtlasSource_a8run")
 [node name="Main" type="Node2D" unique_id=1794716377]
 script = ExtResource("1_l3cfh")
 metadata/_edit_horizontal_guides_ = [336.0]
+
+[node name="Control" parent="." unique_id=1274858996 instance=ExtResource("2_b1x3f")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1308782488]
 offset = Vector2(25, 25)

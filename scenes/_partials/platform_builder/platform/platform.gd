@@ -11,13 +11,27 @@ var game_level:
 		level_config = LEVEL_CONFIGS[value]
 
 const LEVEL_CONFIGS = {
-	1: {'fall_delay': 2000, 'fall_y_offset': 500, 'fall_duration': 10},
-	2: {'fall_delay': 1500, 'fall_y_offset': 500, 'fall_duration': 9},
-	3: {'fall_delay': 1000, 'fall_y_offset': 450, 'fall_duration': 7},
-	4: {'fall_delay': 500, 'fall_y_offset': 400, 'fall_duration': 5},
-	5: {'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 3}
+	1: {
+		'fall_delay': 3000, 'fall_y_offset': 500, 'fall_duration': 8,
+		'colors': {'light_gray': "878156", 'dark_blue': "1b240f", 'med_gray': "2e421d", 'new_blue': "304016", 'mid_blue': "458032", 'light_blue': "d8de6a"}
+	},
+	2: {
+		'fall_delay': 2000, 'fall_y_offset': 500, 'fall_duration': 7,
+		'colors': {'light_gray': "adb1c9", 'dark_blue': "212435", 'med_gray': "727590", 'new_blue': "393e5b", 'mid_blue': "575b75", 'light_blue': "7d84aa"}
+	},
+	3: {
+		'fall_delay': 1000, 'fall_y_offset': 450, 'fall_duration': 6,
+		'colors': {'light_gray': "f5b041", 'dark_blue': "2c1a1a", 'med_gray': "cb4335", 'new_blue': "e67e22", 'mid_blue': "40752e", 'light_blue': "38ab4d"}
+	},
+	4: {
+		'fall_delay': 500, 'fall_y_offset': 400, 'fall_duration': 5,
+		'colors': {'light_gray': "adb1c9", 'dark_blue': "212435", 'med_gray': "727590", 'new_blue': "393e5b", 'mid_blue': "40752e", 'light_blue': "38ab4d"}
+	},
+	5: {
+		'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 3,
+		'colors': {'light_gray': "5b2c6f", 'dark_blue': "110515", 'med_gray': "4a235a", 'new_blue': "2e4053", 'mid_blue': "40752e", 'light_blue': "38ab4d"}
+	}
 }
-
 
 var is_falling = false
 var target_y: float = 0.0
@@ -62,7 +76,23 @@ func start_falling():
 	tween.tween_property(self, "modulate:a", 0.0, 1.0).set_delay(fall_duration - 1).set_trans(Tween.TRANS_LINEAR)
 	tween.chain().tween_callback(queue_free)
 
+func apply_level_shader_colors():
+	var mat = material as ShaderMaterial
+	if not mat or not level_config.has('colors'): return
+	
+	var colors = level_config['colors']
+	mat.set_shader_parameter("target_light_gray", Color(colors['light_gray']))
+	mat.set_shader_parameter("target_dark_blue", Color(colors['dark_blue']))
+	mat.set_shader_parameter("target_med_gray", Color(colors['med_gray']))
+	mat.set_shader_parameter("target_new_blue", Color(colors['new_blue']))
+	mat.set_shader_parameter("target_mid_blue", Color(colors['mid_blue']))
+	mat.set_shader_parameter("target_light_blue", Color(colors['light_blue']))
 
 func _ready():
+	if material:
+		material = material.duplicate()
+	
+	apply_level_shader_colors()
+	
 	draw_platform()
 	draw_label()

@@ -3,7 +3,7 @@ extends Node
 var p: Player
 
 var highest_score = 0
-var pixels_treshold = 400
+var pixels_treshold = 20
 
 func update_players_stats():
 	pixels_treshold = remap(GameManager.players_stats.xp.value, 1, 200, 400, 100)
