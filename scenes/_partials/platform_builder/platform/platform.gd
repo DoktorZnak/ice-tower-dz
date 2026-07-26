@@ -21,15 +21,15 @@ const LEVEL_CONFIGS = {
 	},
 	3: {
 		'fall_delay': 1000, 'fall_y_offset': 450, 'fall_duration': 6,
-		'colors': {'light_gray': "f5b041", 'dark_blue': "2c1a1a", 'med_gray': "cb4335", 'new_blue': "e67e22", 'mid_blue': "40752e", 'light_blue': "38ab4d"}
+		'colors': {'light_gray': "e89774", 'dark_blue': "2b1b17", 'med_gray': "8c7d70", 'new_blue': "6e3b23", 'mid_blue': "9c5333", 'light_blue': "c27451"}
 	},
 	4: {
 		'fall_delay': 500, 'fall_y_offset': 400, 'fall_duration': 5,
-		'colors': {'light_gray': "adb1c9", 'dark_blue': "212435", 'med_gray': "727590", 'new_blue': "393e5b", 'mid_blue': "40752e", 'light_blue': "38ab4d"}
+		'colors': {'light_gray': "adb1c9", 'dark_blue': "000000", 'med_gray': "727590", 'new_blue': "181a26", 'mid_blue': "575b75", 'light_blue': "7d84aa"}
 	},
 	5: {
 		'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 3,
-		'colors': {'light_gray': "5b2c6f", 'dark_blue': "110515", 'med_gray': "4a235a", 'new_blue': "2e4053", 'mid_blue': "40752e", 'light_blue': "38ab4d"}
+		'colors': {'light_gray': "a82b2b", 'dark_blue': "000000", 'med_gray': "727590", 'new_blue': "181a26", 'mid_blue': "575b75", 'light_blue': "7d84aa"}
 	}
 }
 
