@@ -46,7 +46,7 @@ func on_lava_moved(lava_y):
 func _ready():
 	EventBus.game_level_changed.connect(update_game_level)
 	EventBus.lava_moved.connect(on_lava_moved)
-	spawn_next_platform(50)
+	spawn_next_platform(65)
 	for y in range(1, 4):
 		spawn_next_platform()
 	spawn_next_platform()
