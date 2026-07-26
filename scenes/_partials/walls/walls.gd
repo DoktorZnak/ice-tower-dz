@@ -40,11 +40,22 @@ func build_walls_up_to(target_y_pixel):
 		last_built_wall_y_tile -= 1
 		build_wall_row(last_built_wall_y_tile)
 
+
+func on_lava_moved(lava_y_pixel: float):
+	var lava_tile_y = int(floor(lava_y_pixel / TILE_SIZE_Y))
+	var used_cells = get_used_cells()
+	for cell in used_cells:
+		if cell.y > lava_tile_y:
+			set_cell(cell, -1) # -1 usuwa kafelek całkowicie
+
+
+
 func update_game_level(new_level):
 	level_config = LEVEL_CONFIGS[new_level]
 
 func _ready() -> void:
 	EventBus.game_level_changed.connect(update_game_level)
+	EventBus.lava_moved.connect(on_lava_moved)
 	for y in range(1, 7):
 		build_wall_row(y)
 	build_walls_up_to(-700)
