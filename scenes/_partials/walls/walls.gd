@@ -42,11 +42,11 @@ func build_walls_up_to(target_y_pixel):
 
 
 func on_lava_moved(lava_y_pixel: float):
-	var lava_tile_y = int(floor(lava_y_pixel / TILE_SIZE_Y))
+	var lava_tile_y = int(floor(lava_y_pixel / TILE_SIZE_Y)) + 2
 	var used_cells = get_used_cells()
 	for cell in used_cells:
 		if cell.y > lava_tile_y:
-			set_cell(cell, -1) # -1 usuwa kafelek całkowicie
+			set_cell(cell, -1)
 
 
 
@@ -64,14 +64,3 @@ func _ready() -> void:
 func _on_area_2d_body_entered(_body):
 	$Area2D.global_position.y -= 500
 	build_walls_up_to($Area2D.global_position.y - 200)
-	#clean_old_walls()
-
-
-#func clean_old_walls(target_y_pixel: float):
-	#var target_tile_y = int(floor(target_y_pixel / TILE_SIZE_Y))
-	#
-	#var start_x = -12 - BG_COLUMNS
-	#var end_x = 11 + BG_COLUMNS
-	#
-	#for x_tile in range(start_x, end_x + 1):
-		#erase_cell(Vector2i(x_tile, target_tile_y))

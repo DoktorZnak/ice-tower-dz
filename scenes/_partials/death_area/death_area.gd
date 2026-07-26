@@ -11,6 +11,7 @@ func _on_point_above_player_area_body_entered(_body):
 
 func _on_death_area_body_entered(_body):
 	print('game over!')
+	
 
 func _ready():
 	$PointAbovePlayerArea.global_position.y = -800

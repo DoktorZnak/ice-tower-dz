@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ioawiueowbf6" path="res://scenes/_partials/death_area/death_area.gd" id="1_yt2id"]
 [ext_resource type="Texture2D" uid="uid://bmylr54i2whb4" path="res://assets/lava.png" id="2_ek3qp"]
+[ext_resource type="AudioStream" uid="uid://vvmcuankfps7" path="res://assets/sounds/lava.mp3" id="3_fetk4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svoqv"]
 
@@ -54,6 +55,12 @@ region_rect = Rect2(0, 0, 1152, 64)
 position = Vector2(0, 1)
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_dco1w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=910502854]
+stream = ExtResource("3_fetk4")
+autoplay = true
+max_distance = 500.0
+parameters/looping = true
 
 [connection signal="body_entered" from="." to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="PointAbovePlayerArea" to="." method="_on_point_above_player_area_body_entered"]
