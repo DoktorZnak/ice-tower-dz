@@ -38,8 +38,14 @@ func update_game_level(new_level):
 	level_config = LEVEL_CONFIGS[new_level]
 	game_level = new_level
 
+func on_lava_moved(lava_y):
+	for platform in $Platforms.get_children():
+		if platform.global_position.y > lava_y:
+			platform.queue_free()
+
 func _ready():
 	EventBus.game_level_changed.connect(update_game_level)
+	EventBus.lava_moved.connect(on_lava_moved)
 	spawn_next_platform(50)
 	for y in range(1, 4):
 		spawn_next_platform()
@@ -50,12 +56,3 @@ func _on_area_2d_body_entered(_body):
 	$Area2D.global_position.y -= 600
 	for y in range(1, 6):
 		spawn_next_platform()
-
-#func clean_old_platforms(cleanup_y):
-	#for platform in $Platforms.get_children():
-		#if platform.is_falling:
-			#continue
-			#
-		#if platform.global_position.y > cleanup_y:
-			#if platform.has_method("collapse"):
-				#platform.force_collapse()
