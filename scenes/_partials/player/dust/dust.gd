@@ -3,6 +3,11 @@ extends AnimatedSprite2D
 var animation_done = false
 var audio_done = false
 
+var landing = [
+	preload("res://assets/sounds/Landing Sound Effects.mp3"),
+	preload("res://assets/sounds/footstep.mp3"),
+]
+
 func _ready():
 	$AudioStreamPlayer2D.finished.connect(_on_audio_finished)
 

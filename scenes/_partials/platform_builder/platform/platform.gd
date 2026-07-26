@@ -12,23 +12,23 @@ var game_level:
 
 const LEVEL_CONFIGS = {
 	1: {
-		'fall_delay': 3000, 'fall_y_offset': 500, 'fall_duration': 8,
+		'fall_delay': 3500, 'fall_y_offset': 500, 'fall_duration': 8,
 		'colors': {'light_gray': "878156", 'dark_blue': "1b240f", 'med_gray': "2e421d", 'new_blue': "304016", 'mid_blue': "458032", 'light_blue': "d8de6a"}
 	},
 	2: {
-		'fall_delay': 2000, 'fall_y_offset': 500, 'fall_duration': 7,
+		'fall_delay': 3000, 'fall_y_offset': 500, 'fall_duration': 8,
 		'colors': {'light_gray': "adb1c9", 'dark_blue': "212435", 'med_gray': "727590", 'new_blue': "393e5b", 'mid_blue': "575b75", 'light_blue': "7d84aa"}
 	},
 	3: {
-		'fall_delay': 1000, 'fall_y_offset': 450, 'fall_duration': 6,
+		'fall_delay': 2500, 'fall_y_offset': 500, 'fall_duration': 7,
 		'colors': {'light_gray': "e89774", 'dark_blue': "2b1b17", 'med_gray': "8c7d70", 'new_blue': "6e3b23", 'mid_blue': "9c5333", 'light_blue': "c27451"}
 	},
 	4: {
-		'fall_delay': 500, 'fall_y_offset': 400, 'fall_duration': 5,
+		'fall_delay': 2000, 'fall_y_offset': 450, 'fall_duration': 6,
 		'colors': {'light_gray': "adb1c9", 'dark_blue': "000000", 'med_gray': "727590", 'new_blue': "181a26", 'mid_blue': "575b75", 'light_blue': "7d84aa"}
 	},
 	5: {
-		'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 3,
+		'fall_delay': 300, 'fall_y_offset': 350, 'fall_duration': 2.5,
 		'colors': {'light_gray': "a82b2b", 'dark_blue': "000000", 'med_gray': "727590", 'new_blue': "181a26", 'mid_blue': "575b75", 'light_blue': "7d84aa"}
 	}
 }

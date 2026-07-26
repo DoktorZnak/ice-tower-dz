@@ -7,11 +7,11 @@ var platform_counter = 1
 var next_spawn_y = 0
 
 const LEVEL_CONFIGS = {
-	1: {'center_offset': 350, 'platform_spacing': 120},
-	2: {'center_offset': 398, 'platform_spacing': 140},
-	3: {'center_offset': 446, 'platform_spacing': 160},
-	4: {'center_offset': 494, 'platform_spacing': 180},
-	5: {'center_offset': 542, 'platform_spacing': 200}
+	1: {'center_offset': 350, 'platform_spacing': 120, 'length_min': 11, 'length_max': 18},
+	2: {'center_offset': 398, 'platform_spacing': 120, 'length_min': 12, 'length_max': 19},
+	3: {'center_offset': 446, 'platform_spacing': 130, 'length_min': 13, 'length_max': 20},
+	4: {'center_offset': 494, 'platform_spacing': 140, 'length_min': 14, 'length_max': 21},
+	5: {'center_offset': 542, 'platform_spacing': 250, 'length_min': 4, 'length_max': 14}
 }
 
 var level_config = LEVEL_CONFIGS[1]
@@ -21,7 +21,7 @@ func spawn_next_platform(custom_length = null):
 	platform_counter += 1
 	var new_platform = platform_scene.instantiate() as Platform
 	new_platform.count = platform_counter
-	new_platform.length = custom_length if custom_length else randi_range(11, 14)
+	new_platform.length = custom_length if custom_length else randi_range(level_config['length_min'], level_config['length_max'])
 	new_platform.game_level = game_level
 	
 	var platform_half_length = (new_platform.length * 22 / 2)

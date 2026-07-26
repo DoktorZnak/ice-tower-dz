@@ -26,6 +26,20 @@ var is_grounded = true
 
 @onready var dust = preload("res://scenes/_partials/player/dust/dust.tscn")
 
+var sounds = [
+	preload("res://assets/sounds/jumping-sounds/jump1.wav"),
+	preload("res://assets/sounds/jumping-sounds/jump2.wav"),
+	preload("res://assets/sounds/jumping-sounds/jump3.wav"),
+	preload("res://assets/sounds/jumping-sounds/jump4.wav"),
+]
+
+func play_jump_sound():
+	if randf() >= 0.5:
+		return
+	var random_sound = sounds.pick_random()
+	$AudioStreamPlayer2D.stream = random_sound
+	$AudioStreamPlayer2D.play()
+
 func is_player_grounded():
 	return true if is_on_floor() or $PlatformCheckArea.has_overlapping_bodies() else false
 
@@ -37,14 +51,14 @@ func trigger_collapsing_platform():
 			collider.collapse()
 
 func update_players_stats():
-	calculated_acc = ACCELERATION * remap(GameManager.players_stats.acc.value, 1, 200, 1.5, 5)
+	calculated_acc = ACCELERATION * remap(GameManager.players_stats.acc.value, 1, 200, 1.5, 4)
 	calculated_maxspeed = MAX_SPEED * remap(GameManager.players_stats.maxspeed.value, 1, 200, 2.5, 4)
 	calculated_friction = FRICTION * remap(GameManager.players_stats.friction.value, 1, 200, 1, 35)
-	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, 200, 2, 4)
+	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, 200, 2, 3.2)
 	
 	var average_stat = (GameManager.players_stats.maxspeed.value + GameManager.players_stats.jump.value) / 2.0
 	jump_speed_bonus = remap(average_stat, 1, 200, 0.25, 0.4)
-	jump_bounce_bonus = remap(average_stat, 1, 200, 0.25, 0.55)
+	jump_bounce_bonus = remap(average_stat, 1, 200, 0.25, 0.45)
 
 func handle_direction(delta):
 	var direction := Input.get_axis("left", "right")
@@ -69,9 +83,14 @@ func handle_jump(delta):
 		var extra_jump_force = horizontal_momentum * jump_speed_bonus
 		var calculated_jump = mod_base_jump - extra_jump_force
 		velocity.y = clamp(calculated_jump, mod_max_jump, mod_base_jump)
+		play_jump_sound()
 	
 func handle_wall_bounce():
 	var actual_impact_speed = abs(speed_before_collision)
+	var minimum_impact_speed = 400.0
+	if actual_impact_speed >= minimum_impact_speed:
+		if not $BounceAudio.playing:
+			$BounceAudio.play()
 	var wall_normal = get_wall_normal().x
 	velocity.x = wall_normal * actual_impact_speed * 0.4
 	if not is_on_floor():
@@ -95,7 +114,7 @@ func play_animations():
 		$AnimatedSprite2D.play("idle" if is_player_grounded() else "jump_idle")
 	else:
 		$AnimatedSprite2D.play("run" if is_player_grounded() else "jump_direction")
-		$AnimatedSprite2D.flip_h = direction < 0	 
+		$AnimatedSprite2D.flip_h = direction < 0
 
 func update_camera(y):
 	$Camera2D.limit_bottom = y + 64
