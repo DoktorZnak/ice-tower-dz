@@ -9,8 +9,8 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset_game"):
-		get_tree().reload_current_scene()
 		GameManager.reset_stat_points()
+		get_tree().reload_current_scene()
 
 	if Input.is_action_just_pressed('pause'):
 		$UpgradeCards.open_upgrade_menu()

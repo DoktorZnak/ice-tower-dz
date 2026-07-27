@@ -8,9 +8,9 @@ var next_spawn_y = 0
 
 const LEVEL_CONFIGS = {
 	1: {'center_offset': 350, 'platform_spacing': 120, 'length_min': 11, 'length_max': 18},
-	2: {'center_offset': 398, 'platform_spacing': 120, 'length_min': 12, 'length_max': 19},
-	3: {'center_offset': 446, 'platform_spacing': 130, 'length_min': 13, 'length_max': 20},
-	4: {'center_offset': 494, 'platform_spacing': 140, 'length_min': 14, 'length_max': 21},
+	2: {'center_offset': 398, 'platform_spacing': 120, 'length_min': 11, 'length_max': 18},
+	3: {'center_offset': 446, 'platform_spacing': 130, 'length_min': 11, 'length_max': 18},
+	4: {'center_offset': 494, 'platform_spacing': 140, 'length_min': 11, 'length_max': 18},
 	5: {'center_offset': 542, 'platform_spacing': 250, 'length_min': 4, 'length_max': 14}
 }
 

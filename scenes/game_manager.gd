@@ -1,6 +1,8 @@
 # GameManager.gd
 extends Node
 
+var player_won = true
+
 var players_stats = {
 	'acc': {'value': 200, 'label': 'Acceleration'},
 	'maxspeed': {'value': 200, 'label': 'Speed'},
@@ -12,7 +14,6 @@ var players_stats = {
 func set_stat_point(stat_name, value):
 	players_stats[stat_name]["value"] = value
 	EventBus.stats_updated.emit()
-
 
 func reset_stat_points():
 	players_stats = {

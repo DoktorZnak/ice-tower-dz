@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bu3j42svmcx6j"]
+
+[ext_resource type="Script" uid="uid://dhlhbpe3khwvl" path="res://scenes/game_over/stat_row/stat_row.gd" id="1_k4h25"]
+
+[node name="stat_row" type="HBoxContainer" unique_id=61058552]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 11
+script = ExtResource("1_k4h25")
+
+[node name="StatLabel" type="Label" parent="." unique_id=1727277733]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 21
+text = "Acceleration"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=859143941]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 0
+value = 69.03
