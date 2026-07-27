@@ -2,7 +2,7 @@ extends Node
 
 var p: Player
 
-const LEVEL_THRESHOLDS = [50, 100, 150, 200]
+const LEVEL_THRESHOLDS = [5, 10, 15, 20]
 
 var game_score = 0
 var current_game_level = 1

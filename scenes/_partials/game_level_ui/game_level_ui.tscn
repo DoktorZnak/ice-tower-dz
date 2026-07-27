@@ -18,3 +18,19 @@ layout_mode = 2
 
 [node name="RomanNumber2" parent="HBoxContainer" unique_id=325979928 instance=ExtResource("2_ggdpd")]
 layout_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=148538501]
+wait_time = 120.0
+
+[node name="TimerLabel" type="Label" parent="." unique_id=13639080]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 49.0
+offset_top = 7.0
+offset_right = 134.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "gvrewgrew"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
