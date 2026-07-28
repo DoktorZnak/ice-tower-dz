@@ -33,9 +33,12 @@ func setup_tome_ui():
 	var current_value = player_stat.value 
 	new_value = current_value + get_random_bonus_by_rarity()
 	
+	var current_value_label = str(current_value) if current_value < 200 else 'MAX' 
+	var new_value_label = str(new_value) if new_value < 200 else 'MAX' 
+	
 	%TomeNameLabel.set('text', player_stat.label + " Tome")
-	%CurrentStateLabel.set('text', player_stat.label + " " + str(current_value) + "%")
-	%NewStateLabel.set('text', str(new_value) + "%")
+	%CurrentStateLabel.set('text', player_stat.label + " " + current_value_label + "%")
+	%NewStateLabel.set('text', new_value_label + "%")
 
 func setupPanelTextureRect():
 	var original_style = %PanelTextureRect.get("theme_override_styles/panel")
