@@ -4,7 +4,6 @@ const ROMAN_NUMBER_SCENE = preload("res://scenes/_partials/game_level_ui/roman_n
 
 func count_down():
 	$Timer.start()
-	$TimerLabel.visible = true
 	set_process(true)
 	
 func on_game_level_change(level):

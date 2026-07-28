@@ -11,7 +11,7 @@ const LEVEL_CONFIGS = {
 	1: {"left": - 8, "right": 7},
 	2: {"left": - 9, "right": 8},
 	3: {"left": - 10, "right": 9},
-	4: {"left": - 11, "right": 10},
+	4: {"left": - 12, "right": 11},
 	5: {"left": - 12, "right": 11}
 }
 

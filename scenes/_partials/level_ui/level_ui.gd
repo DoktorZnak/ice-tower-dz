@@ -14,7 +14,7 @@ func level_up():
 	var diff = current_xp - xp_needed
 	current_xp = diff
 	level += 1
-	xp_needed *= 1.5
+	xp_needed *= 1.2
 	$HBoxContainer/levelLabel.text = str(level)
 	EventBus.player_level_changed.emit(level)
 

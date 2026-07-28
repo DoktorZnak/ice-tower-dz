@@ -7,11 +7,11 @@ var platform_counter = 1
 var next_spawn_y = 0
 
 const LEVEL_CONFIGS = {
-	1: {'center_offset': 350, 'platform_spacing': 120, 'length_min': 11, 'length_max': 18},
-	2: {'center_offset': 398, 'platform_spacing': 120, 'length_min': 11, 'length_max': 18},
-	3: {'center_offset': 446, 'platform_spacing': 130, 'length_min': 11, 'length_max': 18},
-	4: {'center_offset': 494, 'platform_spacing': 140, 'length_min': 11, 'length_max': 18},
-	5: {'center_offset': 542, 'platform_spacing': 250, 'length_min': 4, 'length_max': 14}
+	1: {'center_offset': 350, 'platform_spacing': 100, 'length_min': 11, 'length_max': 18, 'spawn_number': 7},
+	2: {'center_offset': 398, 'platform_spacing': 110, 'length_min': 11, 'length_max': 18, 'spawn_number': 7},
+	3: {'center_offset': 446, 'platform_spacing': 120, 'length_min': 11, 'length_max': 18, 'spawn_number': 7},
+	4: {'center_offset': 494, 'platform_spacing': 150, 'length_min': 11, 'length_max': 18, 'spawn_number': 6},
+	5: {'center_offset': 542, 'platform_spacing': 250, 'length_min': 4, 'length_max': 14, 'spawn_number': 6}
 }
 
 var level_config = LEVEL_CONFIGS[1]
@@ -54,5 +54,6 @@ func _ready():
 
 func _on_area_2d_body_entered(_body):
 	$Area2D.global_position.y -= 600
-	for y in range(1, 6):
+
+	for y in range(1, level_config['spawn_number']):
 		spawn_next_platform()
