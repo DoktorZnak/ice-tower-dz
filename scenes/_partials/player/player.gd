@@ -51,14 +51,14 @@ func trigger_collapsing_platform():
 			collider.collapse()
 
 func update_players_stats():
-	calculated_acc = ACCELERATION * remap(GameManager.players_stats.acc.value, 1, 200, 1.5, 4)
-	calculated_maxspeed = MAX_SPEED * remap(GameManager.players_stats.maxspeed.value, 1, 200, 2.5, 4)
+	calculated_acc = ACCELERATION * remap(GameManager.players_stats.acc.value, 1, 200, 1.5, 6)
+	calculated_maxspeed = MAX_SPEED * remap(GameManager.players_stats.maxspeed.value, 1, 200, 2.5, 6)
 	calculated_friction = FRICTION * remap(GameManager.players_stats.friction.value, 1, 200, 1, 35)
-	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, 200, 2, 3.2)
+	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, 200, 2, 4.5)
 	
 	var average_stat = (GameManager.players_stats.maxspeed.value + GameManager.players_stats.jump.value) / 2.0
-	jump_speed_bonus = remap(average_stat, 1, 200, 0.25, 0.4)
-	jump_bounce_bonus = remap(average_stat, 1, 200, 0.25, 0.45)
+	jump_speed_bonus = remap(average_stat, 1, 200, 0.25, 0.7)
+	jump_bounce_bonus = remap(average_stat, 1, 200, 0.25, 0.6)
 
 func handle_direction(delta):
 	var direction := Input.get_axis("left", "right")

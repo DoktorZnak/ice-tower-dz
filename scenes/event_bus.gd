@@ -5,3 +5,4 @@ signal stats_updated
 signal game_level_changed(new_level: int)
 signal highest_score_changed(new_score)
 signal player_level_changed(new_player_level: int)
+signal highest_floor_changed(new_highest_flor_score)

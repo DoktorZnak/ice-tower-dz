@@ -2,18 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdrdqrwi7rtyp" path="res://scenes/_partials/platform_builder/platform_builder.gd" id="1_i065g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i065g"]
-size = Vector2(1152, 325.5)
-
 [node name="PlatformBuilder" type="Node2D" unique_id=1890143622]
 script = ExtResource("1_i065g")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=590943167]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1661928003]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_i065g")
-
 [node name="Platforms" type="Node2D" parent="." unique_id=855331133]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
