@@ -2,7 +2,7 @@
 extends Node
 
 var player_won = false
-const LEVEL_THRESHOLDS = [20, 40, 60, 80]
+const LEVEL_THRESHOLDS = [10, 20, 30, 40]
 const LEVEL_PIXELS_TRESHOLD = 600
 
 var players_stats = {
