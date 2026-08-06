@@ -2,16 +2,24 @@
 extends Node
 
 var player_won = false
-const LEVEL_THRESHOLDS = [10, 20, 30, 40]
+const LEVEL_THRESHOLDS = [30, 50, 65, 90]
 const LEVEL_PIXELS_TRESHOLD = 600
 var platform_counter = 1
 
 var players_stats = {
-	'acc': {'value': 200, 'label': 'Acceleration'},
-	'maxspeed': {'value': 200, 'label': 'Speed'},
-	'jump': {'value': 200, 'label': 'Jump'},
-	'friction': {'value': 200, 'label': 'Friction'},
-	'xp': {'value': 200, 'label': 'XP Bonus'}
+	'acc': {'value': 400, 'label': 'Acceleration'},
+	'maxspeed': {'value': 400, 'label': 'Speed'},
+	'jump': {'value': 400, 'label': 'Jump'},
+	'friction': {'value': 400, 'label': 'Friction'},
+	'xp': {'value': 400, 'label': 'XP Bonus'}
+}
+
+var PLAYERS_STATS_MAX = {
+	'acc': 400,
+	'maxspeed': 400,
+	'jump': 400,
+	'friction': 400,
+	'xp': 400
 }
 
 func set_stat_point(stat_name, value):

@@ -2,19 +2,19 @@ extends Control
 
 var random_xp = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5]
 var current_xp = 0
-var xp_needed = 203200
+var xp_needed = 8321321
 var level = 1
 
 var xp_bonus = 1
 
 func update_players_stats():
-	xp_bonus = remap(GameManager.players_stats.xp.value, 1, 200, 1, 5)
+	xp_bonus = remap(GameManager.players_stats.xp.value, 1, GameManager.PLAYERS_STATS_MAX['xp'], 1, 4)
 
 func level_up():
 	var diff = current_xp - xp_needed
 	current_xp = diff
 	level += 1
-	xp_needed *= 1.2
+	xp_needed *= 1.05
 	$HBoxContainer/levelLabel.text = str(level)
 	EventBus.player_level_changed.emit(level)
 

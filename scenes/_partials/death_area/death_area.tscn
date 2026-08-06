@@ -6,9 +6,6 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svoqv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt2id"]
-size = Vector2(1150, 324)
-
 [sub_resource type="Gradient" id="Gradient_ek3qp"]
 offsets = PackedFloat32Array(0, 0.7374392, 1)
 colors = PackedColorArray(1, 0.2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
@@ -39,11 +36,6 @@ metadata/_edit_horizontal_guides_ = [-162.0]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=984663670]
 shape = SubResource("WorldBoundaryShape2D_svoqv")
 
-[node name="PointAbovePlayerArea" type="Area2D" parent="." unique_id=873507391]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PointAbovePlayerArea" unique_id=1889438168]
-shape = SubResource("RectangleShape2D_yt2id")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=408183284]
 texture_repeat = 2
 position = Vector2(0, 32)
@@ -63,4 +55,3 @@ max_distance = 650.0
 parameters/looping = true
 
 [connection signal="body_entered" from="." to="." method="_on_death_area_body_entered"]
-[connection signal="body_entered" from="PointAbovePlayerArea" to="." method="_on_point_above_player_area_body_entered"]

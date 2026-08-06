@@ -1,6 +1,6 @@
 extends Control
 
-@export_enum("tax","acc","maxspeed","jump","friction", "xp") var tome_type = 'tax' 
+@export_enum("tax", "acc", "maxspeed", "jump", "friction", "xp") var tome_type = 'tax'
 @export_enum("common", "uncommon", "rare") var tome_rarity: String = "common"
 
 signal card_clicked
@@ -21,20 +21,20 @@ func setup_tome_ui():
 	%RarityLabel.set("theme_override_colors/font_color", rarity_color[tome_rarity])
 	%RarityLabel.set("text", tome_rarity.to_pascal_case())
 	setupPanelTextureRect()
-	var texture_path = "res://assets/tomes/" + tome_type + "-tome.png" 
-	%TextureRect.set('texture', load(texture_path)) 
+	var texture_path = "res://assets/tomes/" + tome_type + "-tome.png"
+	%TextureRect.set('texture', load(texture_path))
 	
-	if tome_type == 'tax': 
+	if tome_type == 'tax':
 		%TomeNameLabel.set('text', "Tax Tome")
 		%StatsContainer.set('visible', false)
 		return
 
-	var player_stat = GameManager.players_stats[tome_type] 
-	var current_value = player_stat.value 
+	var player_stat = GameManager.players_stats[tome_type]
+	var current_value = player_stat.value
 	new_value = current_value + get_random_bonus_by_rarity()
 	
-	var current_value_label = str(current_value) if current_value < 200 else 'MAX' 
-	var new_value_label = str(new_value) if new_value < 200 else 'MAX' 
+	var current_value_label = str(current_value) if current_value < GameManager.PLAYERS_STATS_MAX[tome_type] else 'MAX'
+	var new_value_label = str(new_value) if new_value < GameManager.PLAYERS_STATS_MAX[tome_type] else 'MAX'
 	
 	%TomeNameLabel.set('text', player_stat.label + " Tome")
 	%CurrentStateLabel.set('text', player_stat.label + " " + current_value_label + "%")
@@ -48,9 +48,9 @@ func setupPanelTextureRect():
 
 func get_random_bonus_by_rarity():
 	match tome_rarity:
-		"common":   return randi_range(10, 20)
+		"common": return randi_range(10, 20)
 		"uncommon": return randi_range(21, 41)
-		"rare":     return randi_range(42, 60)
+		"rare": return randi_range(42, 60)
 	return 0
 
 
@@ -71,7 +71,7 @@ func _on_mouse_exited():
 func _on_gui_input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if(tome_type != 'tax'):
+			if (tome_type != 'tax'):
 				GameManager.set_stat_point(tome_type, new_value)
 			card_clicked.emit()
 			get_tree().paused = false
