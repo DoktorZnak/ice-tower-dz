@@ -149,4 +149,13 @@ text = "Try Again"
 layout_mode = 2
 text = "(press r)"
 
+[node name="PlatformCount" type="Label" parent="." unique_id=2004445433]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 104.0
+offset_right = 686.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 33
+text = "143 Platforms"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

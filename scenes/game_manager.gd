@@ -4,6 +4,7 @@ extends Node
 var player_won = false
 const LEVEL_THRESHOLDS = [10, 20, 30, 40]
 const LEVEL_PIXELS_TRESHOLD = 600
+var platform_counter = 1
 
 var players_stats = {
 	'acc': {'value': 200, 'label': 'Acceleration'},

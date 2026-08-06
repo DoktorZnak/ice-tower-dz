@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	if(!GameManager.player_won):
 		$GameWinLabel.text = 'You lose!'
+	$PlatformCount.text = str(GameManager.platform_counter) +' Platforms'
 
 func _on_button_pressed():
 	GameManager.reset_stat_points()

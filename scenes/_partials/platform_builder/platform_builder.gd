@@ -3,8 +3,6 @@ extends Node2D
 var platform_scene: PackedScene = preload("res://scenes/_partials/platform_builder/platform/platform.tscn")
 @onready var main := get_owner() as MainScript
 
-var platform_counter = 1
-
 const LEVEL_CONFIGS = {
 	1: {'center_offset': 350, 'platform_spacing': 100, 'length_min': 11, 'length_max': 18},
 	2: {'center_offset': 398, 'platform_spacing': 110, 'length_min': 11, 'length_max': 18},
@@ -17,9 +15,9 @@ var level_config = LEVEL_CONFIGS[1]
 var game_level = 1
 
 func spawn_platform(spawn_y, full_width = false):
-	platform_counter += 1
+	GameManager.platform_counter += 1
 	var new_platform = platform_scene.instantiate() as Platform
-	new_platform.count = platform_counter
+	new_platform.count = GameManager.platform_counter
 	new_platform.length = 70 if full_width == true else randi_range(level_config['length_min'], level_config['length_max'])
 	new_platform.game_level = game_level
 	
