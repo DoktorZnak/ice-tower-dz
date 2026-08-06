@@ -67,7 +67,7 @@ func on_highest_floor(highest_floor):
 	
 	spawn_platforms(spawn_platforms_y_from_calculated, - (highest_floor_px + (GameManager.LEVEL_PIXELS_TRESHOLD * 2)))
 	if next_level_close:
-		spawn_platform(spawn_platforms_y_from_calculated + level_config['platform_spacing'], true)
+		spawn_platform((spawn_platforms_y_from_calculated + level_config['platform_spacing']) - 5, true)
 
 func is_next_level_close(highest_floor):
 	if (game_level == 5): return false

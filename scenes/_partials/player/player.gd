@@ -117,9 +117,23 @@ func play_animations():
 		$AnimatedSprite2D.flip_h = direction < 0
 
 func update_camera(y):
-	$Camera2D.limit_bottom = y + 64
+	var target_limit = y + 64
+	$Camera2D.limit_bottom = target_limit
+
+func on_game_level_change(game_level):
+	if game_level == 1: return
+	
+	var current_floor = GameManager.LEVEL_THRESHOLDS[game_level - 2]
+	var y_px = -(current_floor * GameManager.LEVEL_PIXELS_TRESHOLD) + 50
+	var target_limit = y_px + 64
+	
+	var tween = create_tween()
+	tween.tween_property($Camera2D, "limit_bottom", target_limit, 0.5)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
 
 func _ready():
 	update_players_stats()
 	EventBus.lava_moved.connect(update_camera)
 	EventBus.stats_updated.connect(update_players_stats)
+	EventBus.game_level_changed.connect(on_game_level_change)
