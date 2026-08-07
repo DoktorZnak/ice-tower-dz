@@ -56,9 +56,9 @@ func update_players_stats():
 	calculated_friction = FRICTION * remap(GameManager.players_stats.friction.value, 1, GameManager.PLAYERS_STATS_MAX['friction'], 1, 80)
 	jump_stat_modifier = remap(GameManager.players_stats.jump.value, 1, GameManager.PLAYERS_STATS_MAX['jump'], 2, 4)
 	
-	var average_stat = (GameManager.players_stats.maxspeed.value + GameManager.players_stats.jump.value) / 2.0
-	jump_speed_bonus = remap(average_stat, 1, 200, 0.25, 0.4)
-	jump_bounce_bonus = remap(average_stat, 1, 200, 0.25, 0.35)
+	var average_stat = (GameManager.players_stats.maxspeed.value + GameManager.players_stats.jump.value + GameManager.players_stats.acc.value) / 3.0
+	jump_speed_bonus = remap(average_stat, 1, 400, 0.25, 0.4)
+	jump_bounce_bonus = remap(average_stat, 1, 400, 0.25, 0.35)
 
 func handle_direction(delta):
 	var direction := Input.get_axis("left", "right")

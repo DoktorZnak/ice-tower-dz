@@ -7,11 +7,11 @@ const LEVEL_PIXELS_TRESHOLD = 600
 var platform_counter = 1
 
 var players_stats = {
-	'acc': {'value': 300, 'label': 'Acceleration'},
-	'maxspeed': {'value': 300, 'label': 'Speed'},
-	'jump': {'value': 300, 'label': 'Jump'},
-	'friction': {'value': 300, 'label': 'Friction'},
-	'xp': {'value': 300, 'label': 'XP Bonus'}
+	'acc': {'value': 1, 'label': 'Acceleration'},
+	'maxspeed': {'value': 1, 'label': 'Speed'},
+	'jump': {'value': 1, 'label': 'Jump'},
+	'friction': {'value': 1, 'label': 'Friction'},
+	'xp': {'value': 1, 'label': 'XP Bonus'}
 }
 
 var PLAYERS_STATS_MAX = {
@@ -28,6 +28,7 @@ func set_stat_point(stat_name, value):
 
 func reset_stat_points():
 	player_won = false
+	platform_counter = 1
 	players_stats = {
 		'acc': {'value': 1, 'label': 'Acceleration'},
 		'maxspeed': {'value': 1, 'label': 'Speed'},

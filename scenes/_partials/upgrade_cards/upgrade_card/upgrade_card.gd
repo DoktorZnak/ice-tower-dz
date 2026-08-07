@@ -51,9 +51,9 @@ func setupPanelTextureRect():
 
 func get_random_bonus_by_rarity():
 	match tome_rarity:
-		"common": return randi_range(10, 20)
-		"uncommon": return randi_range(21, 41)
-		"rare": return randi_range(42, 60)
+		"common": return randi_range(5, 15)
+		"uncommon": return randi_range(20, 35)
+		"rare": return randi_range(40, 60)
 	return 0
 
 
