@@ -33,8 +33,11 @@ func setup_tome_ui():
 	var current_value = player_stat.value
 	new_value = current_value + get_random_bonus_by_rarity()
 	
-	var current_value_label = str(current_value) if current_value < GameManager.PLAYERS_STATS_MAX[tome_type] else 'MAX'
-	var new_value_label = str(new_value) if new_value < GameManager.PLAYERS_STATS_MAX[tome_type] else 'MAX'
+	var is_maxed = new_value >= GameManager.PLAYERS_STATS_MAX[tome_type]
+	if(is_maxed):
+		EventBus.upgrade_card_maxed.emit(tome_type)
+	var current_value_label = str(current_value)
+	var new_value_label = 'MAX' if is_maxed else str(new_value)
 	
 	%TomeNameLabel.set('text', player_stat.label + " Tome")
 	%CurrentStateLabel.set('text', player_stat.label + " " + current_value_label + "%")

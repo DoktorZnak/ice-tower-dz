@@ -19,7 +19,11 @@ func open_upgrade_menu():
 	
 	get_tree().paused = true
 
+func on_upgrade_card_maxed(card_type):
+	types.erase(card_type)
+
 func _ready():
+	EventBus.upgrade_card_maxed.connect(on_upgrade_card_maxed)
 	randomize()
 	for card in cards:
 		card.card_clicked.connect(self.hide)

@@ -7,11 +7,11 @@ const LEVEL_PIXELS_TRESHOLD = 600
 var platform_counter = 1
 
 var players_stats = {
-	'acc': {'value': 400, 'label': 'Acceleration'},
-	'maxspeed': {'value': 400, 'label': 'Speed'},
-	'jump': {'value': 400, 'label': 'Jump'},
-	'friction': {'value': 400, 'label': 'Friction'},
-	'xp': {'value': 400, 'label': 'XP Bonus'}
+	'acc': {'value': 300, 'label': 'Acceleration'},
+	'maxspeed': {'value': 300, 'label': 'Speed'},
+	'jump': {'value': 300, 'label': 'Jump'},
+	'friction': {'value': 300, 'label': 'Friction'},
+	'xp': {'value': 300, 'label': 'XP Bonus'}
 }
 
 var PLAYERS_STATS_MAX = {
