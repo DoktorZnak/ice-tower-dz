@@ -49,6 +49,7 @@ amount = 128
 process_material = SubResource("ParticleProcessMaterial_dco1w")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=910502854]
+process_mode = 3
 stream = ExtResource("3_fetk4")
 autoplay = true
 max_distance = 650.0

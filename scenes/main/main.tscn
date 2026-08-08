@@ -59,6 +59,7 @@ position = Vector2(-70, -50)
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1101342274]
+process_mode = 3
 stream = ExtResource("10_a8run")
 volume_db = -25.0
 autoplay = true
