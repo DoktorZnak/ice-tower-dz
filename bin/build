@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+GODOT_BIN="${GODOT_BIN:-}"
+if [ -z "$GODOT_BIN" ]; then
+	if command -v godot >/dev/null 2>&1; then
+		GODOT_BIN="godot"
+	elif [ -x "/Applications/Godot.app/Contents/MacOS/Godot" ]; then
+		GODOT_BIN="/Applications/Godot.app/Contents/MacOS/Godot"
+	elif [ -x "$HOME/Desktop/Godot.app/Contents/MacOS/Godot" ]; then
+		GODOT_BIN="$HOME/Desktop/Godot.app/Contents/MacOS/Godot"
+	else
+		echo "error: Godot executable not found. Set GODOT_BIN or install Godot to /Applications/Godot.app" >&2
+		exit 1
+	fi
+fi
+
+mkdir -p html
+"$GODOT_BIN" --headless --export-release "Web" "html/my ice tower.html"
+echo "Build complete: html/my ice tower.html"
