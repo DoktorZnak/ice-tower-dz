@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="my ice tower"
-run/main_scene="uid://br1cqd800x1kl"
+run/main_scene="uid://dt5siaov6rh3e"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

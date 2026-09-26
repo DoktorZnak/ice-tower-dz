@@ -1,6 +1,15 @@
 extends Control
 
 func _ready():
+	if GameManager.is_first_launch:
+		# start screen: a first tap/click also unlocks audio and shows touch controls on mobile
+		GameManager.is_first_launch = false
+		$GameWinLabel.text = 'Ice Tower'
+		$MarginContainer/HBoxContainer/Button.text = 'Play'
+		$MarginContainer/HBoxContainer/Label.visible = false
+		$PlatformCount.visible = false
+		$VBoxContainer.visible = false
+		return
 	if(!GameManager.player_won):
 		$GameWinLabel.text = 'You lose!'
 	$PlatformCount.text = str(GameManager.platform_counter) +' Platforms'

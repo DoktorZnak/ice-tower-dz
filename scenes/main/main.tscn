@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://2lrargi40a7l" path="res://scenes/_partials/death_area/death_area.tscn" id="7_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://l4aaxyybpdha" path="res://scenes/_partials/upgrade_cards/upgrade_cards.tscn" id="8_yyfjg"]
 [ext_resource type="AudioStream" uid="uid://csorvov14msgs" path="res://assets/sounds/bg-music.mp3" id="10_a8run"]
+[ext_resource type="Script" path="res://scenes/_partials/touch_controls/touch_controls.gd" id="11_touch"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8run"]
 texture = ExtResource("6_yyfjg")
@@ -64,3 +65,8 @@ stream = ExtResource("10_a8run")
 volume_db = -25.0
 autoplay = true
 parameters/looping = true
+
+[node name="TouchControls" type="CanvasLayer" parent="."]
+layer = 10
+process_mode = 3
+script = ExtResource("11_touch")

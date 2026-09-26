@@ -142,7 +142,7 @@ script = ExtResource("6_liuav")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1025769798]
 stream = ExtResource("7_dct5s")
-volume_db = -8.0
+volume_db = -12.0
 
 [node name="WalkingAudio" type="AudioStreamPlayer2D" parent="." unique_id=324628954]
 stream = ExtResource("8_rex2j")
