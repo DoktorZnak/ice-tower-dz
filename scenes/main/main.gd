@@ -12,8 +12,8 @@ func _process(_delta):
 		GameManager.reset_stat_points()
 		get_tree().reload_current_scene()
 
-	if Input.is_action_just_pressed('pause'):
-		$UpgradeCards.open_upgrade_menu()
+	#if Input.is_action_just_pressed('pause'):
+		#$UpgradeCards.open_upgrade_menu()
 		
-func on_player_level_up(new_level):
+func on_player_level_up(_new_level):
 	$UpgradeCards.open_upgrade_menu()
