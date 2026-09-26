@@ -27,10 +27,10 @@ var is_grounded = true
 @onready var dust = preload("res://scenes/_partials/player/dust/dust.tscn")
 
 var sounds = [
-	preload("res://assets/sounds/jumping-sounds/jump1.wav"),
-	preload("res://assets/sounds/jumping-sounds/jump2.wav"),
-	preload("res://assets/sounds/jumping-sounds/jump3.wav"),
-	preload("res://assets/sounds/jumping-sounds/jump4.wav"),
+	preload("res://assets/sounds/jumping-sounds/jump1.mp3"),
+	preload("res://assets/sounds/jumping-sounds/jump2.mp3"),
+	preload("res://assets/sounds/jumping-sounds/jump3.mp3"),
+	preload("res://assets/sounds/jumping-sounds/jump4.mp3"),
 ]
 
 func play_jump_sound():
