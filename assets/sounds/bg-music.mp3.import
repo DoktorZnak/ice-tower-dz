@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/bg-music.mp3-7b689c828f0f97869efe3b7e5762f4bf
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
